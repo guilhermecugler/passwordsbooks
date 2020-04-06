@@ -34,7 +34,7 @@ namespace PL
             if (frmProdutoSelecionar.ShowDialog() == DialogResult.OK)
             {
                 int codigoProduto = frmProdutoSelecionar.ProdutoSelecionadoPedido;
-                this.produto = PizzariaBLL.BuscarProdutoBLL(codigoProduto);
+                this.produto = SistemaBLL.BuscarProdutoBLL(codigoProduto);
                 string[] linhaProduto = { frmProdutoSelecionar.produto.CodProduto.ToString(), frmProdutoSelecionar.produto.DescricaoProduto, frmProdutoSelecionar.produto.Categoria, frmProdutoSelecionar.produto.Preco };
                 GridItemVenda.Rows.Add(linhaProduto);
                 ValorTotalPedido();
@@ -63,7 +63,7 @@ namespace PL
 
             string[] filtros = { txtPesquisar.Text };
 
-            List<Cliente> Clientes = PizzariaBLL.BuscarClienteDAL(filtros);
+            List<Cliente> Clientes = SistemaBLL.BuscarClienteDAL(filtros);
 
             foreach (var cliente in Clientes)
             {
@@ -85,7 +85,7 @@ namespace PL
 
             if (CodigoCliente != 0)
             {
-                cliente = PizzariaBLL.BuscarClienteBLL(CodigoCliente);
+                cliente = SistemaBLL.BuscarClienteBLL(CodigoCliente);
 
                 string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteTipoCadastro, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteLinkSite };
                 txtClientePedido.Text = cliente.clienteNome;
@@ -98,7 +98,7 @@ namespace PL
 
             string[] filtros = { txtPesquisar.Text };
 
-            List<Cliente> Clientes = PizzariaBLL.BuscarClienteDAL(filtros);
+            List<Cliente> Clientes = SistemaBLL.BuscarClienteDAL(filtros);
 
             foreach (var cliente in Clientes)
             {
@@ -128,12 +128,12 @@ namespace PL
             pedido.ValorTotalPedido = float.Parse(txtValorTotal.Text);
             pedido.ObservacaoPedido = txtObsPedido.Text;
 
-            PizzariaBLL.InserirPedidoBLL(pedido);
+            SistemaBLL.InserirPedidoBLL(pedido);
 
             item = new Item_Venda();
             item.CodProduto = produto.CodProduto;
 
-            PizzariaBLL.InserirItemBLL(item);
+            SistemaBLL.InserirItemBLL(item);
 
             MessageBox.Show("Código Cliente: " + pedido.CodCliente + "\n" + "Cliente: " + pedido.NomeCliente + "\n" + "Obs: " + pedido.ObservacaoPedido + "\n" + "VALOR TOTAL: " + pedido.ValorTotalPedido);
 

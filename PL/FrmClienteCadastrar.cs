@@ -27,7 +27,7 @@ namespace PL
 
             if (CodigoCliente != 0)
             {
-                cliente = PizzariaBLL.BuscarClienteBLL(CodigoCliente);
+                cliente = SistemaBLL.BuscarClienteBLL(CodigoCliente);
 
                 mskClienteCPF.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 mskClienteTel.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
@@ -98,9 +98,9 @@ namespace PL
 
 
             if (cliente.Id == 0)
-                cliente.Id = PizzariaBLL.InserirClienteBLL(cliente);
+                cliente.Id = SistemaBLL.InserirClienteBLL(cliente);
             else
-                PizzariaBLL.AtualizarClienteBLL(cliente);
+                SistemaBLL.AtualizarClienteBLL(cliente);
 
             MessageBox.Show("Cliente Cadastrado com Sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

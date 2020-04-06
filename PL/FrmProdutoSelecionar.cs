@@ -38,7 +38,7 @@ namespace PL
 
             string[] filtros = { txtNome.Text, cboCategoria.Text };
 
-            List<Produto> Produtos = PizzariaBLL.BuscarProdutoDAL(filtros);
+            List<Produto> Produtos = SistemaBLL.BuscarProdutoDAL(filtros);
 
             foreach (var produto in Produtos)
             {
@@ -80,7 +80,7 @@ namespace PL
             {
                 int ProdutoSelecionado = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
 
-                PizzariaBLL.ExcluirProdutoBLL(ProdutoSelecionado);
+                SistemaBLL.ExcluirProdutoBLL(ProdutoSelecionado);
 
                 Grid.Rows.RemoveAt(Grid.CurrentRow.Index);
             }
@@ -91,7 +91,7 @@ namespace PL
         {
             int ProdutoSelecionadoPedido = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
 
-            produto = PizzariaBLL.BuscarProdutoBLL(ProdutoSelecionadoPedido);
+            produto = SistemaBLL.BuscarProdutoBLL(ProdutoSelecionadoPedido);
             
             this.DialogResult = DialogResult.OK;
         }

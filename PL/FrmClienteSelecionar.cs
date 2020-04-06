@@ -48,7 +48,7 @@ namespace PL
 
             string[] filtros = { txtPesquisar.Text };
 
-            List<Cliente> Clientes = PizzariaBLL.BuscarClienteDAL(filtros);
+            List<Cliente> Clientes = SistemaBLL.BuscarClienteDAL(filtros);
 
             foreach (var cliente in Clientes)
             {
@@ -78,7 +78,7 @@ namespace PL
             {
                 int CodigoClienteLinhaSelecionada = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
 
-                PizzariaBLL.ExcluirClienteBLL(CodigoClienteLinhaSelecionada);
+                SistemaBLL.ExcluirClienteBLL(CodigoClienteLinhaSelecionada);
 
                 Grid.Rows.RemoveAt(Grid.CurrentRow.Index);
             }

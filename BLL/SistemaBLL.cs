@@ -8,57 +8,57 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public class PizzariaBLL
+    public class SistemaBLL
     {
         public static int InserirClienteBLL(Cliente cliente)
         {
-            return PizzariaDAL.InserirClienteDAL(cliente);
+            return SistemaDAL.InserirClienteDAL(cliente);
         }
         public static List<Cliente> BuscarClienteDAL(string[] filtros)
         {
-            return PizzariaDAL.BuscarClienteDAL(filtros);
+            return SistemaDAL.BuscarClienteDAL(filtros);
         }
         public static Cliente BuscarClienteBLL(int CodigoCliente)
         {
-            return PizzariaDAL.BuscarClienteDAL(CodigoCliente);
+            return SistemaDAL.BuscarClienteDAL(CodigoCliente);
         }
         public static void AtualizarClienteBLL(Cliente cliente)
         {
-            PizzariaDAL.AtualizarClienteDAL(cliente);
+            SistemaDAL.AtualizarClienteDAL(cliente);
         }
         public static void ExcluirClienteBLL(int CodigoCliente)
         {
-            PizzariaDAL.ExcluirClienteDAL(CodigoCliente);
+            SistemaDAL.ExcluirClienteDAL(CodigoCliente);
         }
 
         public static int InserirProdutoBLL(Produto produto)
         {
-            return PizzariaDAL.InserirProdutoDAL(produto);
+            return SistemaDAL.InserirProdutoDAL(produto);
         }
         public static List<Produto> BuscarProdutoDAL(string[] filtros)
         {
-            return PizzariaDAL.BuscarProdutoDAL(filtros);
+            return SistemaDAL.BuscarProdutoDAL(filtros);
         }
         public static Produto BuscarProdutoBLL(int CodigoProduto)
         {
-            return PizzariaDAL.BuscarProdutoDAL(CodigoProduto);
+            return SistemaDAL.BuscarProdutoDAL(CodigoProduto);
         }
         public static void AtualizarProdutoBLL(Produto produto)
         {
-            PizzariaDAL.AtualizarProdutoDAL(produto);
+            SistemaDAL.AtualizarProdutoDAL(produto);
         }
         public static void ExcluirProdutoBLL(int CodigoProduto)
         {
-            PizzariaDAL.ExcluirProdutoDAL(CodigoProduto);
+            SistemaDAL.ExcluirProdutoDAL(CodigoProduto);
         }
 
         public static int InserirPedidoBLL(Pedido pedido)
         {
-            return PizzariaDAL.InserirPedidoDAL(pedido);
+            return SistemaDAL.InserirPedidoDAL(pedido);
         }
         public static int InserirItemBLL(Item_Venda item)
         {
-            return PizzariaDAL.InserirItemDAL(item);
+            return SistemaDAL.InserirItemDAL(item);
         }
     }
 }

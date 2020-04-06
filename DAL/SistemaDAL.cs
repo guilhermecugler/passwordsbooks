@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class PizzariaDAL
+    public class SistemaDAL
     {
         public static int InserirClienteDAL(Cliente cliente)
         {
@@ -59,8 +59,8 @@ namespace DAL
 
             if (filtros[0] != String.Empty)
             {
-                Comando.CommandText += " AND clienteNome LIKE '%' +@Nome + '%' OR clienteCPF LIKE '%' +@Nome + '%'  ";
-                Comando.Parameters.Add("Nome", MySqlDbType.VarChar).Value = filtros[0];
+                Comando.CommandText += " AND clienteNome LIKE @Nome OR clienteCPF LIKE @Nome ";
+                Comando.Parameters.AddWithValue("@Nome", "%" + filtros[0] + "%");
             }
 
             Conexao.Open();

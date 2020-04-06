@@ -38,7 +38,7 @@ namespace PL
             if (CodigoProduto != 0)
             {
                 this.Text = "Alterar Produto";
-                produto = PizzariaBLL.BuscarProdutoBLL(CodigoProduto);
+                produto = SistemaBLL.BuscarProdutoBLL(CodigoProduto);
 
                 txtNome.Text = produto.DescricaoProduto;
                 txtPreco.Text = produto.Preco;
@@ -56,9 +56,9 @@ namespace PL
             produto.Categoria = cboCategoria.Text;
 
             if (produto.CodProduto == 0)
-                produto.CodProduto = PizzariaBLL.InserirProdutoBLL(produto);
+                produto.CodProduto = SistemaBLL.InserirProdutoBLL(produto);
             else
-                PizzariaBLL.AtualizarProdutoBLL(produto);
+                SistemaBLL.AtualizarProdutoBLL(produto);
 
             DialogResult = DialogResult.OK;
         }
