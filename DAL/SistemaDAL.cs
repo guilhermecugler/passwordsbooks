@@ -59,9 +59,16 @@ namespace DAL
 
             if (filtros[0] != String.Empty)
             {
-                Comando.CommandText += " AND clienteNome LIKE @Nome OR clienteCPF LIKE @Nome ";
-                Comando.Parameters.AddWithValue("@Nome", "%" + filtros[0] + "%");
+                    Comando.CommandText += " AND (clienteNome LIKE @Nome OR clienteCPF LIKE @Nome)";
+                    Comando.Parameters.AddWithValue("@Nome", "%" + filtros[0] + "%");
             }
+            if(filtros[1] != String.Empty)
+            {
+                Comando.CommandText += " AND clienteTipoCadastro LIKE @clienteTipo";;
+                Comando.Parameters.AddWithValue("@clienteTipo", "%" + filtros[1] + "%");
+            }
+
+            Console.WriteLine(Comando.CommandText);
 
             Conexao.Open();
             MySqlDataReader Dr = Comando.ExecuteReader();

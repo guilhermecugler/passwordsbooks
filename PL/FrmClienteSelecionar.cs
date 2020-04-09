@@ -18,10 +18,6 @@ namespace PL
         {
             InitializeComponent();
 
-            if (acao == Acao.Inserir)
-            {
-                btnInserirPedido.Visible = true;
-            }
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -46,7 +42,7 @@ namespace PL
         {
             Grid.Rows.Clear();
 
-            string[] filtros = { txtPesquisar.Text };
+            string[] filtros = { txtPesquisar.Text, cbTipo.Text };
 
             List<Cliente> Clientes = SistemaBLL.BuscarClienteDAL(filtros);
 

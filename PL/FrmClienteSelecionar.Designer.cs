@@ -59,7 +59,8 @@
             this.txtPesquisar = new System.Windows.Forms.TextBox();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnInserirPedido = new System.Windows.Forms.Button();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@
             this.btnFechar.Location = new System.Drawing.Point(670, 336);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(75, 23);
-            this.btnFechar.TabIndex = 23;
+            this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
             this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
@@ -78,17 +79,18 @@
             this.btnExcluir.Location = new System.Drawing.Point(579, 336);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
-            this.btnExcluir.TabIndex = 22;
+            this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
             this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnAlterar
             // 
+            this.btnAlterar.Enabled = false;
             this.btnAlterar.Location = new System.Drawing.Point(488, 336);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 21;
+            this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
             this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
@@ -98,7 +100,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(397, 336);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(75, 23);
-            this.btnIncluir.TabIndex = 20;
+            this.btnIncluir.TabIndex = 5;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
             this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
@@ -111,6 +113,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.Grid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -138,9 +141,9 @@
             this.Grid.MultiSelect = false;
             this.Grid.Name = "Grid";
             this.Grid.ReadOnly = true;
-            this.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Grid.Size = new System.Drawing.Size(740, 283);
-            this.Grid.TabIndex = 19;
+            this.Grid.TabIndex = 4;
             this.Grid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellContentDoubleClick);
             // 
             // ColumnID
@@ -161,128 +164,147 @@
             this.ColumnTipo.HeaderText = "Tipo";
             this.ColumnTipo.Name = "ColumnTipo";
             this.ColumnTipo.ReadOnly = true;
+            this.ColumnTipo.Width = 53;
             // 
             // ColumnNome
             // 
             this.ColumnNome.HeaderText = "Nome";
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 60;
             // 
             // ColumnCPF
             // 
             this.ColumnCPF.HeaderText = "CPF";
             this.ColumnCPF.Name = "ColumnCPF";
             this.ColumnCPF.ReadOnly = true;
+            this.ColumnCPF.Width = 52;
             // 
             // ColumnLogin
             // 
             this.ColumnLogin.HeaderText = "Login/Usuário";
             this.ColumnLogin.Name = "ColumnLogin";
             this.ColumnLogin.ReadOnly = true;
+            this.ColumnLogin.Width = 99;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "E-mail";
             this.ColumnEmail.Name = "ColumnEmail";
             this.ColumnEmail.ReadOnly = true;
+            this.ColumnEmail.Width = 60;
             // 
             // ColumnSenha
             // 
             this.ColumnSenha.HeaderText = "Senha";
             this.ColumnSenha.Name = "ColumnSenha";
             this.ColumnSenha.ReadOnly = true;
+            this.ColumnSenha.Width = 63;
             // 
             // ColumnCartao
             // 
             this.ColumnCartao.HeaderText = "Cartão";
             this.ColumnCartao.Name = "ColumnCartao";
             this.ColumnCartao.ReadOnly = true;
+            this.ColumnCartao.Width = 63;
             // 
             // ColumnTelefone
             // 
             this.ColumnTelefone.HeaderText = "Telefone";
             this.ColumnTelefone.Name = "ColumnTelefone";
             this.ColumnTelefone.ReadOnly = true;
+            this.ColumnTelefone.Width = 74;
             // 
             // ColumnCelular
             // 
             this.ColumnCelular.HeaderText = "Celular";
             this.ColumnCelular.Name = "ColumnCelular";
             this.ColumnCelular.ReadOnly = true;
+            this.ColumnCelular.Width = 64;
             // 
             // ColumnObs
             // 
             this.ColumnObs.HeaderText = "Observação";
             this.ColumnObs.Name = "ColumnObs";
             this.ColumnObs.ReadOnly = true;
+            this.ColumnObs.Width = 90;
             // 
             // ColumnDN
             // 
             this.ColumnDN.HeaderText = "Data de Nascimento";
             this.ColumnDN.Name = "ColumnDN";
             this.ColumnDN.ReadOnly = true;
+            this.ColumnDN.Width = 118;
             // 
             // ColumnEndereco
             // 
             this.ColumnEndereco.HeaderText = "Endereço";
             this.ColumnEndereco.Name = "ColumnEndereco";
             this.ColumnEndereco.ReadOnly = true;
+            this.ColumnEndereco.Width = 78;
             // 
             // ColumnEnderecoNumero
             // 
             this.ColumnEnderecoNumero.HeaderText = "Número";
             this.ColumnEnderecoNumero.Name = "ColumnEnderecoNumero";
             this.ColumnEnderecoNumero.ReadOnly = true;
+            this.ColumnEnderecoNumero.Width = 69;
             // 
             // ColumnEnderecoComplemento
             // 
             this.ColumnEnderecoComplemento.HeaderText = "Complemento";
             this.ColumnEnderecoComplemento.Name = "ColumnEnderecoComplemento";
             this.ColumnEnderecoComplemento.ReadOnly = true;
+            this.ColumnEnderecoComplemento.Width = 96;
             // 
             // ColumnEnderecoBairro
             // 
             this.ColumnEnderecoBairro.HeaderText = "Bairro";
             this.ColumnEnderecoBairro.Name = "ColumnEnderecoBairro";
             this.ColumnEnderecoBairro.ReadOnly = true;
+            this.ColumnEnderecoBairro.Width = 59;
             // 
             // ColumnEnderecoCidade
             // 
             this.ColumnEnderecoCidade.HeaderText = "Cidade";
             this.ColumnEnderecoCidade.Name = "ColumnEnderecoCidade";
             this.ColumnEnderecoCidade.ReadOnly = true;
+            this.ColumnEnderecoCidade.Width = 65;
             // 
             // ColumnUF
             // 
             this.ColumnUF.HeaderText = "UF";
             this.ColumnUF.Name = "ColumnUF";
             this.ColumnUF.ReadOnly = true;
+            this.ColumnUF.Width = 46;
             // 
             // ColumnAtendente
             // 
             this.ColumnAtendente.HeaderText = "Atendente";
             this.ColumnAtendente.Name = "ColumnAtendente";
             this.ColumnAtendente.ReadOnly = true;
+            this.ColumnAtendente.Width = 81;
             // 
             // ColumnSite
             // 
             this.ColumnSite.HeaderText = "Link/Site";
             this.ColumnSite.Name = "ColumnSite";
             this.ColumnSite.ReadOnly = true;
+            this.ColumnSite.Width = 75;
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.Location = new System.Drawing.Point(170, 8);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(475, 20);
-            this.txtPesquisar.TabIndex = 18;
+            this.txtPesquisar.Size = new System.Drawing.Size(258, 20);
+            this.txtPesquisar.TabIndex = 1;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Location = new System.Drawing.Point(662, 7);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 17;
+            this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
@@ -296,22 +318,30 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "Cliente/Telefone/CPF/Cartão:";
             // 
-            // btnInserirPedido
+            // cbTipo
             // 
-            this.btnInserirPedido.Location = new System.Drawing.Point(7, 337);
-            this.btnInserirPedido.Name = "btnInserirPedido";
-            this.btnInserirPedido.Size = new System.Drawing.Size(101, 23);
-            this.btnInserirPedido.TabIndex = 41;
-            this.btnInserirPedido.Text = "Inserir no Pedido";
-            this.btnInserirPedido.UseVisualStyleBackColor = true;
-            this.btnInserirPedido.Visible = false;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(491, 7);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(163, 21);
+            this.cbTipo.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(434, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Tipo/Site:";
             // 
             // FrmClienteSelecionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(749, 363);
-            this.Controls.Add(this.btnInserirPedido);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnAlterar);
@@ -342,7 +372,6 @@
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnInserirPedido;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
@@ -363,5 +392,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAtendente;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSite;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.Label label2;
     }
 }
