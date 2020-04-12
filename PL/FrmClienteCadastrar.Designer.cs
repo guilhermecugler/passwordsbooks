@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteCadastrar));
             this.txtClienteNome = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,7 +56,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtClienteTipoCadastro = new System.Windows.Forms.ComboBox();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtClienteLogin = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -73,6 +74,8 @@
             this.label21 = new System.Windows.Forms.Label();
             this.mskClienteDN = new System.Windows.Forms.MaskedTextBox();
             this.mskClienteCartao = new System.Windows.Forms.MaskedTextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // txtClienteNome
@@ -81,7 +84,7 @@
             this.txtClienteNome.Location = new System.Drawing.Point(9, 67);
             this.txtClienteNome.Name = "txtClienteNome";
             this.txtClienteNome.Size = new System.Drawing.Size(359, 22);
-            this.txtClienteNome.TabIndex = 13;
+            this.txtClienteNome.TabIndex = 2;
             // 
             // label1
             // 
@@ -100,7 +103,7 @@
             this.mskClienteCPF.Mask = "000,000,000-00";
             this.mskClienteCPF.Name = "mskClienteCPF";
             this.mskClienteCPF.Size = new System.Drawing.Size(167, 22);
-            this.mskClienteCPF.TabIndex = 27;
+            this.mskClienteCPF.TabIndex = 5;
             // 
             // label12
             // 
@@ -119,7 +122,7 @@
             this.mskAdicional.Mask = "(99) 00000-0000";
             this.mskAdicional.Name = "mskAdicional";
             this.mskAdicional.Size = new System.Drawing.Size(100, 22);
-            this.mskAdicional.TabIndex = 30;
+            this.mskAdicional.TabIndex = 11;
             // 
             // mskClienteTelCelular
             // 
@@ -128,7 +131,7 @@
             this.mskClienteTelCelular.Mask = "(99) 00000-0000";
             this.mskClienteTelCelular.Name = "mskClienteTelCelular";
             this.mskClienteTelCelular.Size = new System.Drawing.Size(101, 22);
-            this.mskClienteTelCelular.TabIndex = 29;
+            this.mskClienteTelCelular.TabIndex = 10;
             // 
             // mskClienteTel
             // 
@@ -137,7 +140,7 @@
             this.mskClienteTel.Mask = "(99) 0000-0000";
             this.mskClienteTel.Name = "mskClienteTel";
             this.mskClienteTel.Size = new System.Drawing.Size(110, 22);
-            this.mskClienteTel.TabIndex = 28;
+            this.mskClienteTel.TabIndex = 9;
             // 
             // label2
             // 
@@ -168,7 +171,6 @@
             this.label3.Size = new System.Drawing.Size(64, 16);
             this.label3.TabIndex = 33;
             this.label3.Text = "Adicional";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtClienteLogradouro
             // 
@@ -176,7 +178,7 @@
             this.txtClienteLogradouro.Location = new System.Drawing.Point(9, 290);
             this.txtClienteLogradouro.Name = "txtClienteLogradouro";
             this.txtClienteLogradouro.Size = new System.Drawing.Size(359, 22);
-            this.txtClienteLogradouro.TabIndex = 35;
+            this.txtClienteLogradouro.TabIndex = 12;
             // 
             // label5
             // 
@@ -194,7 +196,7 @@
             this.txtClienteNumero.Location = new System.Drawing.Point(9, 334);
             this.txtClienteNumero.Name = "txtClienteNumero";
             this.txtClienteNumero.Size = new System.Drawing.Size(64, 22);
-            this.txtClienteNumero.TabIndex = 37;
+            this.txtClienteNumero.TabIndex = 13;
             // 
             // label7
             // 
@@ -212,7 +214,7 @@
             this.txtClienteBairro.Location = new System.Drawing.Point(79, 334);
             this.txtClienteBairro.Name = "txtClienteBairro";
             this.txtClienteBairro.Size = new System.Drawing.Size(131, 22);
-            this.txtClienteBairro.TabIndex = 39;
+            this.txtClienteBairro.TabIndex = 14;
             // 
             // label4
             // 
@@ -230,7 +232,7 @@
             this.txtClienteComplemento.Location = new System.Drawing.Point(216, 334);
             this.txtClienteComplemento.Name = "txtClienteComplemento";
             this.txtClienteComplemento.Size = new System.Drawing.Size(152, 22);
-            this.txtClienteComplemento.TabIndex = 41;
+            this.txtClienteComplemento.TabIndex = 15;
             // 
             // label11
             // 
@@ -277,7 +279,7 @@
             this.txtClienteUF.Location = new System.Drawing.Point(216, 375);
             this.txtClienteUF.Name = "txtClienteUF";
             this.txtClienteUF.Size = new System.Drawing.Size(152, 24);
-            this.txtClienteUF.TabIndex = 45;
+            this.txtClienteUF.TabIndex = 17;
             // 
             // txtClienteCidade
             // 
@@ -285,7 +287,7 @@
             this.txtClienteCidade.Location = new System.Drawing.Point(9, 377);
             this.txtClienteCidade.Name = "txtClienteCidade";
             this.txtClienteCidade.Size = new System.Drawing.Size(201, 22);
-            this.txtClienteCidade.TabIndex = 44;
+            this.txtClienteCidade.TabIndex = 16;
             // 
             // label10
             // 
@@ -312,7 +314,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(293, 543);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 49;
+            this.btnCancelar.TabIndex = 22;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -322,7 +324,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(202, 543);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 48;
+            this.btnSalvar.TabIndex = 21;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -346,42 +348,14 @@
             this.label13.TabIndex = 50;
             this.label13.Text = "Código";
             // 
-            // txtClienteTipoCadastro
+            // cbTipo
             // 
-            this.txtClienteTipoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtClienteTipoCadastro.FormattingEnabled = true;
-            this.txtClienteTipoCadastro.Items.AddRange(new object[] {
-            "AC",
-            "AL",
-            "AM",
-            "AP",
-            "BA",
-            "CE",
-            "DF",
-            "ES",
-            "GO",
-            "MA",
-            "MG",
-            "MS",
-            "MT",
-            "PA",
-            "PB",
-            "PE",
-            "PI",
-            "PR",
-            "RJ",
-            "RN",
-            "RS",
-            "RO",
-            "RR",
-            "SC",
-            "SE",
-            "SP",
-            "TO"});
-            this.txtClienteTipoCadastro.Location = new System.Drawing.Point(89, 21);
-            this.txtClienteTipoCadastro.Name = "txtClienteTipoCadastro";
-            this.txtClienteTipoCadastro.Size = new System.Drawing.Size(121, 24);
-            this.txtClienteTipoCadastro.TabIndex = 53;
+            this.cbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(89, 21);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(121, 24);
+            this.cbTipo.TabIndex = 1;
             // 
             // label14
             // 
@@ -399,7 +373,8 @@
             this.txtClienteLogin.Location = new System.Drawing.Point(182, 148);
             this.txtClienteLogin.Name = "txtClienteLogin";
             this.txtClienteLogin.Size = new System.Drawing.Size(186, 22);
-            this.txtClienteLogin.TabIndex = 55;
+            this.txtClienteLogin.TabIndex = 6;
+            this.toolTip1.SetToolTip(this.txtClienteLogin, "Diferenciar letras maiúsculas e miniúsculas");
             // 
             // label15
             // 
@@ -417,7 +392,7 @@
             this.txtClienteEmail.Location = new System.Drawing.Point(9, 109);
             this.txtClienteEmail.Name = "txtClienteEmail";
             this.txtClienteEmail.Size = new System.Drawing.Size(187, 22);
-            this.txtClienteEmail.TabIndex = 57;
+            this.txtClienteEmail.TabIndex = 3;
             // 
             // label16
             // 
@@ -435,7 +410,8 @@
             this.txtClienteSenha.Location = new System.Drawing.Point(9, 195);
             this.txtClienteSenha.Name = "txtClienteSenha";
             this.txtClienteSenha.Size = new System.Drawing.Size(167, 22);
-            this.txtClienteSenha.TabIndex = 59;
+            this.txtClienteSenha.TabIndex = 7;
+            this.toolTip2.SetToolTip(this.txtClienteSenha, "Diferenciar letras maiúsculas e miniúsculas");
             // 
             // label17
             // 
@@ -463,7 +439,7 @@
             this.txtClienteObs.Location = new System.Drawing.Point(9, 461);
             this.txtClienteObs.Name = "txtClienteObs";
             this.txtClienteObs.Size = new System.Drawing.Size(359, 22);
-            this.txtClienteObs.TabIndex = 63;
+            this.txtClienteObs.TabIndex = 20;
             // 
             // label8
             // 
@@ -510,7 +486,7 @@
             this.txtClienteAtendente.Location = new System.Drawing.Point(9, 415);
             this.txtClienteAtendente.Name = "txtClienteAtendente";
             this.txtClienteAtendente.Size = new System.Drawing.Size(152, 24);
-            this.txtClienteAtendente.TabIndex = 65;
+            this.txtClienteAtendente.TabIndex = 18;
             // 
             // label19
             // 
@@ -528,7 +504,7 @@
             this.txtClienteLinkSite.Location = new System.Drawing.Point(167, 417);
             this.txtClienteLinkSite.Name = "txtClienteLinkSite";
             this.txtClienteLinkSite.Size = new System.Drawing.Size(201, 22);
-            this.txtClienteLinkSite.TabIndex = 67;
+            this.txtClienteLinkSite.TabIndex = 19;
             // 
             // label20
             // 
@@ -557,17 +533,17 @@
             this.mskClienteDN.Mask = "00/00/0000";
             this.mskClienteDN.Name = "mskClienteDN";
             this.mskClienteDN.Size = new System.Drawing.Size(101, 22);
-            this.mskClienteDN.TabIndex = 68;
+            this.mskClienteDN.TabIndex = 4;
             this.mskClienteDN.ValidatingType = typeof(System.DateTime);
             // 
             // mskClienteCartao
             // 
             this.mskClienteCartao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mskClienteCartao.Location = new System.Drawing.Point(182, 195);
-            this.mskClienteCartao.Mask = "0000.0000.0000.0000";
+            this.mskClienteCartao.Mask = "0000,0000,0000,0000";
             this.mskClienteCartao.Name = "mskClienteCartao";
             this.mskClienteCartao.Size = new System.Drawing.Size(181, 22);
-            this.mskClienteCartao.TabIndex = 70;
+            this.mskClienteCartao.TabIndex = 8;
             // 
             // FrmClienteCadastrar
             // 
@@ -591,7 +567,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtClienteLogin);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.txtClienteTipoCadastro);
+            this.Controls.Add(this.cbTipo);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label13);
@@ -659,7 +635,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox txtClienteTipoCadastro;
+        private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtClienteLogin;
         private System.Windows.Forms.Label label15;
@@ -677,5 +653,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.MaskedTextBox mskClienteDN;
         private System.Windows.Forms.MaskedTextBox mskClienteCartao;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }

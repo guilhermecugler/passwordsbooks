@@ -14,16 +14,36 @@ namespace PL
 {
     public partial class FrmClienteCadastrar : Form
     {
+
+        void fillTipos()
+        {
+
+            cbTipo.Items.Clear();
+
+            string[] tipos = { };
+
+            List<Cliente> Tipos = SistemaBLL.BuscarClienteTipo(tipos);
+
+            foreach (var tipo in Tipos)
+            {
+                cbTipo.Items.Add(tipo.clienteTipoCadastro);
+
+            }
+
+        }
+
         public Cliente cliente = new Cliente();
 
         public FrmClienteCadastrar()
         {
             InitializeComponent();
+            
+            
         }
-
         public FrmClienteCadastrar(int CodigoCliente)
         {
             InitializeComponent();
+            fillTipos();
 
             if (CodigoCliente != 0)
             {
@@ -34,7 +54,7 @@ namespace PL
                 mskClienteTelCelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 mskAdicional.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-                txtClienteTipoCadastro.Text = cliente.clienteTipoCadastro;
+                cbTipo.Text = cliente.clienteTipoCadastro;
                 txtClienteNome.Text = cliente.clienteNome;
                 mskClienteCPF.Text = cliente.clienteCPF;
                 txtClienteLogin.Text = cliente.clienteLogin;
@@ -55,10 +75,6 @@ namespace PL
                 txtClienteLinkSite.Text = cliente.clienteLinkSite;
             }
         }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -76,24 +92,24 @@ namespace PL
             mskClienteDN.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskClienteCartao.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-            cliente.clienteTipoCadastro = txtClienteTipoCadastro.Text;
-            cliente.clienteNome = txtClienteNome.Text;
-            cliente.clienteCPF = mskClienteCPF.Text;
+            cliente.clienteTipoCadastro = cbTipo.Text.ToUpper();
+            cliente.clienteNome = txtClienteNome.Text.ToUpper();
+            cliente.clienteCPF = mskClienteCPF.Text.ToUpper();
             cliente.clienteLogin = txtClienteLogin.Text;
-            cliente.clienteEmail = txtClienteEmail.Text;
+            cliente.clienteEmail = txtClienteEmail.Text.ToLower();
             cliente.clienteSenha = txtClienteSenha.Text;
-            cliente.clienteCartao = mskClienteCartao.Text;
-            cliente.clienteTel = mskClienteTel.Text;
-            cliente.clienteTelCelular = mskClienteTelCelular.Text;
-            cliente.clienteObs = txtClienteObs.Text;
-            cliente.clienteDN = mskClienteDN.Text;
-            cliente.clienteLogradouro = txtClienteLogradouro.Text;
-            cliente.clienteNumero = txtClienteNumero.Text;
-            cliente.clienteComplemento = txtClienteComplemento.Text;
-            cliente.clienteBairro = txtClienteBairro.Text;
-            cliente.clienteCidade = txtClienteCidade.Text;
-            cliente.clienteUF = txtClienteUF.Text;
-            cliente.clienteAtendente = txtClienteAtendente.Text;
+            cliente.clienteCartao = mskClienteCartao.Text.ToUpper();
+            cliente.clienteTel = mskClienteTel.Text.ToUpper();
+            cliente.clienteTelCelular = mskClienteTelCelular.Text.ToUpper();
+            cliente.clienteObs = txtClienteObs.Text.ToUpper();
+            cliente.clienteDN = mskClienteDN.Text.ToUpper();
+            cliente.clienteLogradouro = txtClienteLogradouro.Text.ToUpper();
+            cliente.clienteNumero = txtClienteNumero.Text.ToUpper();
+            cliente.clienteComplemento = txtClienteComplemento.Text.ToUpper();
+            cliente.clienteBairro = txtClienteBairro.Text.ToUpper();
+            cliente.clienteCidade = txtClienteCidade.Text.ToUpper();
+            cliente.clienteUF = txtClienteUF.Text.ToUpper();
+            cliente.clienteAtendente = txtClienteAtendente.Text.ToUpper();
             cliente.clienteLinkSite = txtClienteLinkSite.Text;
 
 
@@ -102,10 +118,9 @@ namespace PL
             else
                 SistemaBLL.AtualizarClienteBLL(cliente);
 
-            MessageBox.Show("Cliente Cadastrado com Sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cliente " + cliente.clienteNome.ToString() + " cadastrado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DialogResult = DialogResult.OK;
         }
-
     }
 }

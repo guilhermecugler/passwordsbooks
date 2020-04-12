@@ -31,6 +31,11 @@ namespace BLL
             SistemaDAL.ExcluirClienteDAL(CodigoCliente);
         }
 
+        public static List<Cliente> BuscarClienteTipo(string[] tipos)
+        {
+            return SistemaDAL.BuscarClienteTipo(tipos);
+        }
+
         public static int InserirProdutoBLL(Produto produto)
         {
             return SistemaDAL.InserirProdutoDAL(produto);

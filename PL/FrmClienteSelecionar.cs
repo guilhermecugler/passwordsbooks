@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+
 
 namespace PL
 {
@@ -17,6 +19,24 @@ namespace PL
         public FrmClienteSelecionar(Acao acao)
         {
             InitializeComponent();
+            fillTipos();
+
+        }
+
+        void fillTipos()
+        {
+
+            cbTipo.Items.Clear();
+
+            string[] tipos = {};
+
+            List<Cliente> Tipos = SistemaBLL.BuscarClienteTipo(tipos);
+
+            foreach (var tipo in Tipos)
+            {
+                cbTipo.Items.Add(tipo.clienteTipoCadastro);
+
+            }
 
         }
 
@@ -70,7 +90,7 @@ namespace PL
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Confirma Exclusão?", "Excluir Ciente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja excluir o cliente " + Grid.CurrentRow.Cells["ColumnNome"].Value.ToString() + "?", "Excluir Ciente", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int CodigoClienteLinhaSelecionada = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
 
@@ -82,6 +102,14 @@ namespace PL
 
         private void Grid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            DataGridViewCell cellLink = (DataGridViewCell)Grid.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (cellLink.ColumnIndex == this.Grid.Columns["ColumnSite"].Index)
+            {
+                Process.Start(Grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                return;
+            }
             btnAlterar_Click(null, null);
         }
 

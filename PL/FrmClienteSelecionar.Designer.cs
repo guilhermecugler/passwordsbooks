@@ -30,12 +30,18 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteSelecionar));
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.Grid = new System.Windows.Forms.DataGridView();
+            this.txtPesquisar = new System.Windows.Forms.TextBox();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,12 +61,7 @@
             this.ColumnEnderecoCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnUF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAtendente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtPesquisar = new System.Windows.Forms.TextBox();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ColumnSite = new System.Windows.Forms.DataGridViewLinkColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +87,6 @@
             // 
             // btnAlterar
             // 
-            this.btnAlterar.Enabled = false;
             this.btnAlterar.Location = new System.Drawing.Point(488, 336);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
@@ -146,6 +146,49 @@
             this.Grid.TabIndex = 4;
             this.Grid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellContentDoubleClick);
             // 
+            // txtPesquisar
+            // 
+            this.txtPesquisar.Location = new System.Drawing.Point(170, 8);
+            this.txtPesquisar.Name = "txtPesquisar";
+            this.txtPesquisar.Size = new System.Drawing.Size(258, 20);
+            this.txtPesquisar.TabIndex = 1;
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(662, 7);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 3;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "Cliente/Telefone/CPF/Cartão:";
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(491, 7);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(163, 21);
+            this.cbTipo.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(434, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "Tipo/Site:";
+            // 
             // ColumnID
             // 
             this.ColumnID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -175,6 +218,9 @@
             // 
             // ColumnCPF
             // 
+            dataGridViewCellStyle3.Format = "000.000.000-00";
+            dataGridViewCellStyle3.NullValue = null;
+            this.ColumnCPF.DefaultCellStyle = dataGridViewCellStyle3;
             this.ColumnCPF.HeaderText = "CPF";
             this.ColumnCPF.Name = "ColumnCPF";
             this.ColumnCPF.ReadOnly = true;
@@ -290,50 +336,9 @@
             this.ColumnSite.HeaderText = "Link/Site";
             this.ColumnSite.Name = "ColumnSite";
             this.ColumnSite.ReadOnly = true;
+            this.ColumnSite.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnSite.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.ColumnSite.Width = 75;
-            // 
-            // txtPesquisar
-            // 
-            this.txtPesquisar.Location = new System.Drawing.Point(170, 8);
-            this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(258, 20);
-            this.txtPesquisar.TabIndex = 1;
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Location = new System.Drawing.Point(662, 7);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 3;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Cliente/Telefone/CPF/Cartão:";
-            // 
-            // cbTipo
-            // 
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Location = new System.Drawing.Point(491, 7);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(163, 21);
-            this.cbTipo.TabIndex = 2;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(434, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "Tipo/Site:";
             // 
             // FrmClienteSelecionar
             // 
@@ -372,6 +377,8 @@
         private System.Windows.Forms.TextBox txtPesquisar;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
@@ -391,8 +398,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEnderecoCidade;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnUF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAtendente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSite;
-        private System.Windows.Forms.ComboBox cbTipo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewLinkColumn ColumnSite;
     }
 }

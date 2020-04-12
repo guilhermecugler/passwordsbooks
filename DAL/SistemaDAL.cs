@@ -171,7 +171,7 @@ namespace DAL
 
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE CLIENTE SET NM_CLIENTE = @clienteNome, NR_CPF_CLIENTE = @CPF, NR_TELEFONE = @Telefone, NR_CELULAR = @Celular, NR_TEL_ADICIONAL = @TelefoneAdicional, DS_ENDERECO = @Endereco, NR_ENDERECO = @Numero, DS_BAIRRO = @Bairro, DS_COMPLEMENTO = @Complemento, DS_CIDADE = @Cidade, DS_UF = @UF, NR_CEP = @CEP WHERE clienteId = @IdCliente";
+            Comando.CommandText = "UPDATE tbCliente SET clienteNome = @clienteNome, clienteCPF = @clienteCPF, clienteLogin = @clienteLogin, clienteEmail = @clienteEmail, clienteSenha = @clienteSenha, clienteCartao = @clienteCartao, clienteTel = @clienteTel, clienteTelCelular = @clienteTelCelular, clienteObs = @clienteObs, clienteDN = @clienteDN, clienteLogradouro = @clienteLogradouro, clienteNumero = @clienteNumero, clienteComplemento = @clienteComplemento, clienteBairro = @clienteBairro, clienteCidade = @clienteCidade, clienteUF = @clienteUF, clienteAtendente = @clienteAtendente, clienteLinkSite = @clienteLinkSite WHERE clienteId = @IdCliente";
             Comando.Parameters.Add("clienteTipoCadastro", MySqlDbType.VarChar).Value = cliente.clienteTipoCadastro;
             Comando.Parameters.Add("clienteNome", MySqlDbType.VarChar).Value = cliente.clienteNome;
             Comando.Parameters.Add("clienteCPF", MySqlDbType.VarChar).Value = cliente.clienteCPF;
@@ -195,6 +195,35 @@ namespace DAL
 
             Conexao.Open();
             Comando.ExecuteNonQuery();
+        }
+
+        public static List<Cliente> BuscarClienteTipo(string[] tipos)
+        {
+            MySqlConnection Conexao = new MySqlConnection();
+            Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
+
+            MySqlCommand Comando = new MySqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "SELECT DISTINCT clienteTipoCadastro FROM tbCliente ORDER BY clienteTipoCadastro";
+
+            Conexao.Open();
+            MySqlDataReader Dr = Comando.ExecuteReader();
+
+            List<Cliente> Clientes = new List<Cliente>();
+
+            if (Dr.HasRows)
+            {
+                while (Dr.Read())
+                {
+                    Cliente cliente = new Cliente();
+                    cliente.clienteTipoCadastro = Convert.ToString(Dr["clienteTipoCadastro"]);
+
+                    Clientes.Add(cliente);
+                }
+            }
+
+            return Clientes;
         }
 
         public static int InserirProdutoDAL(Produto produto)
