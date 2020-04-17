@@ -40,5 +40,11 @@ namespace PL
             FrmPedidoCadastrar frmPedidoCadastrar = new FrmPedidoCadastrar();
             frmPedidoCadastrar.ShowDialog();
         }
+
+        private void testeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHome frmHome = new FrmHome();
+            frmHome.ShowDialog();
+        }
     }
 }

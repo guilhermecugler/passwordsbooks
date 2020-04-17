@@ -45,7 +45,6 @@ namespace PL
             FrmClienteCadastrar frmClienteCadastrar = new FrmClienteCadastrar(0);
             var result = frmClienteCadastrar.ShowDialog();
 
-
             if (result == DialogResult.OK)
             {
                 string[] linhaCliente = { frmClienteCadastrar.cliente.Id.ToString(), frmClienteCadastrar.cliente.clienteTipoCadastro, frmClienteCadastrar.cliente.clienteNome, frmClienteCadastrar.cliente.clienteCPF, frmClienteCadastrar.cliente.clienteLogin, frmClienteCadastrar.cliente.clienteEmail, frmClienteCadastrar.cliente.clienteSenha, frmClienteCadastrar.cliente.clienteCartao, frmClienteCadastrar.cliente.clienteTel, frmClienteCadastrar.cliente.clienteTelCelular, frmClienteCadastrar.cliente.clienteObs, frmClienteCadastrar.cliente.clienteDN, frmClienteCadastrar.cliente.clienteLogradouro, frmClienteCadastrar.cliente.clienteNumero, frmClienteCadastrar.cliente.clienteComplemento, frmClienteCadastrar.cliente.clienteBairro, frmClienteCadastrar.cliente.clienteCidade, frmClienteCadastrar.cliente.clienteUF, frmClienteCadastrar.cliente.clienteAtendente, frmClienteCadastrar.cliente.clienteLinkSite };
