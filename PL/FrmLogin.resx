@@ -234,6 +234,9 @@
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnFechar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 33</value>
+  </data>
   <data name="btnEntrar.Text" xml:space="preserve">
     <value>Entrar</value>
   </data>
@@ -243,8 +246,8 @@
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="btnFechar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>105, 33</value>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Usuário</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
     <value>3</value>
@@ -281,9 +284,6 @@
   </data>
   <data name="textBox2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
-  </data>
-  <data name="textBox1.Text" xml:space="preserve">
-    <value>Usuário</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

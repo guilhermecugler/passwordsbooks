@@ -46,5 +46,10 @@ namespace PL
             FrmHome frmHome = new FrmHome();
             frmHome.ShowDialog();
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

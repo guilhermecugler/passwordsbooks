@@ -71,12 +71,6 @@
     <Compile Include="FrmPedidoCadastrar.Designer.cs">
       <DependentUpon>FrmPedidoCadastrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmProdutoCadastrar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +102,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPedidoCadastrar.resx">
       <DependentUpon>FrmPedidoCadastrar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProdutoCadastrar.resx">
       <DependentUpon>FrmProdutoCadastrar.cs</DependentUpon>
@@ -159,9 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\undraw_home_settings_8rlf %281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logout.png" />
