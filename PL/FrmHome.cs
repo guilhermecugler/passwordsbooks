@@ -22,6 +22,7 @@ namespace PL
         {
             //customizando menus
             panelSubMenuCadastros.Visible = false;
+            panelSubMenuConsultas.Visible = false;
         }
 
         private void hideSubMenu()
@@ -56,13 +57,16 @@ namespace PL
         private void btnSites_Click(object sender, EventArgs e)
         {
             //chamar form de sites
-
+            openChildForm(new FrmClienteSitesSelecionar());
             hideSubMenu();
         }
         #endregion
         private void btnMenuSair_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("Deseja mesmo sair do sistema?", "Sair do sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private Form activeForm = null;
@@ -79,6 +83,17 @@ namespace PL
             panelChildForm.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSubMenuConsultas);
+        }
+
+        private void btnConsultaCPF_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmCPFConsultar());
+            hideSubMenu();
         }
     }
 }

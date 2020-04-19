@@ -36,21 +36,28 @@
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCadastros = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelChildForm = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnConsultas = new System.Windows.Forms.Button();
+            this.panelSubMenuConsultas = new System.Windows.Forms.Panel();
+            this.btnConsultaCNPJ = new System.Windows.Forms.Button();
+            this.btnConsultaCPF = new System.Windows.Forms.Button();
             this.panelSideMenu.SuspendLayout();
             this.panelSubMenuCadastros.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelChildForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelSubMenuConsultas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelSideMenu
             // 
             this.panelSideMenu.AutoScroll = true;
             this.panelSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.panelSideMenu.Controls.Add(this.panelSubMenuConsultas);
+            this.panelSideMenu.Controls.Add(this.btnConsultas);
             this.panelSideMenu.Controls.Add(this.btnMenuSair);
             this.panelSideMenu.Controls.Add(this.panelSubMenuCadastros);
             this.panelSideMenu.Controls.Add(this.btnCadastros);
@@ -63,13 +70,13 @@
             // 
             // btnMenuSair
             // 
-            this.btnMenuSair.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSair.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnMenuSair.FlatAppearance.BorderSize = 0;
             this.btnMenuSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMenuSair.ForeColor = System.Drawing.Color.Silver;
             this.btnMenuSair.Image = global::PL.Properties.Resources.logout;
             this.btnMenuSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuSair.Location = new System.Drawing.Point(0, 231);
+            this.btnMenuSair.Location = new System.Drawing.Point(0, 517);
             this.btnMenuSair.Name = "btnMenuSair";
             this.btnMenuSair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuSair.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -165,6 +172,17 @@
             this.panelLogo.Size = new System.Drawing.Size(250, 95);
             this.panelLogo.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::PL.Properties.Resources.logo_loverbeck_white;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 95);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // panelChildForm
             // 
             this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
@@ -187,16 +205,78 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // btnConsultas
             // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::PL.Properties.Resources.logo_loverbeck_white;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 95);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultas.FlatAppearance.BorderSize = 0;
+            this.btnConsultas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.btnConsultas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(22)))), ((int)(((byte)(34)))));
+            this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultas.ForeColor = System.Drawing.Color.Silver;
+            this.btnConsultas.Image = global::PL.Properties.Resources.cadastros;
+            this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultas.Location = new System.Drawing.Point(0, 231);
+            this.btnConsultas.Name = "btnConsultas";
+            this.btnConsultas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnConsultas.Size = new System.Drawing.Size(250, 45);
+            this.btnConsultas.TabIndex = 4;
+            this.btnConsultas.Text = "      Consultas";
+            this.btnConsultas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
+            // 
+            // panelSubMenuConsultas
+            // 
+            this.panelSubMenuConsultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCNPJ);
+            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCPF);
+            this.panelSubMenuConsultas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuConsultas.Location = new System.Drawing.Point(0, 276);
+            this.panelSubMenuConsultas.Name = "panelSubMenuConsultas";
+            this.panelSubMenuConsultas.Size = new System.Drawing.Size(250, 91);
+            this.panelSubMenuConsultas.TabIndex = 5;
+            // 
+            // btnConsultaCNPJ
+            // 
+            this.btnConsultaCNPJ.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultaCNPJ.FlatAppearance.BorderSize = 0;
+            this.btnConsultaCNPJ.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnConsultaCNPJ.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnConsultaCNPJ.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultaCNPJ.ForeColor = System.Drawing.Color.Silver;
+            this.btnConsultaCNPJ.Image = global::PL.Properties.Resources.sites;
+            this.btnConsultaCNPJ.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultaCNPJ.Location = new System.Drawing.Point(0, 40);
+            this.btnConsultaCNPJ.Name = "btnConsultaCNPJ";
+            this.btnConsultaCNPJ.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConsultaCNPJ.Size = new System.Drawing.Size(250, 40);
+            this.btnConsultaCNPJ.TabIndex = 1;
+            this.btnConsultaCNPJ.Text = "     CNPJ";
+            this.btnConsultaCNPJ.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultaCNPJ.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultaCNPJ.UseVisualStyleBackColor = true;
+            // 
+            // btnConsultaCPF
+            // 
+            this.btnConsultaCPF.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConsultaCPF.FlatAppearance.BorderSize = 0;
+            this.btnConsultaCPF.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnConsultaCPF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnConsultaCPF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultaCPF.ForeColor = System.Drawing.Color.Silver;
+            this.btnConsultaCPF.Image = global::PL.Properties.Resources.clientes;
+            this.btnConsultaCPF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultaCPF.Location = new System.Drawing.Point(0, 0);
+            this.btnConsultaCPF.Name = "btnConsultaCPF";
+            this.btnConsultaCPF.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnConsultaCPF.Size = new System.Drawing.Size(250, 40);
+            this.btnConsultaCPF.TabIndex = 0;
+            this.btnConsultaCPF.Text = "     CPF";
+            this.btnConsultaCPF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsultaCPF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConsultaCPF.UseVisualStyleBackColor = true;
+            this.btnConsultaCPF.Click += new System.EventHandler(this.btnConsultaCPF_Click);
             // 
             // FrmHome
             // 
@@ -215,9 +295,10 @@
             this.panelSideMenu.ResumeLayout(false);
             this.panelSubMenuCadastros.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelChildForm.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelSubMenuConsultas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -234,5 +315,9 @@
         private System.Windows.Forms.Panel panelChildForm;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelSubMenuConsultas;
+        private System.Windows.Forms.Button btnConsultaCNPJ;
+        private System.Windows.Forms.Button btnConsultaCPF;
+        private System.Windows.Forms.Button btnConsultas;
     }
 }

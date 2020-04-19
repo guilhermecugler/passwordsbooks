@@ -67,7 +67,7 @@ namespace PL
 
             foreach (var cliente in Clientes)
             {
-                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteTipoCadastro, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteLinkSite };
+                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente };
                 Grid.Rows.Add(linhaCliente);
             }
         }
@@ -87,7 +87,7 @@ namespace PL
             {
                 cliente = SistemaBLL.BuscarClienteBLL(CodigoCliente);
 
-                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteTipoCadastro, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteLinkSite };
+                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente };
                 txtClientePedido.Text = cliente.clienteNome;
                 txtCodCliente.Text = cliente.Id.ToString();
                 abasPedidos.SelectTab(1);
@@ -102,7 +102,7 @@ namespace PL
 
             foreach (var cliente in Clientes)
             {
-                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteTipoCadastro, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteLinkSite };
+                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente };
                 Grid.Rows.Add(linhaCliente);
             }
         }

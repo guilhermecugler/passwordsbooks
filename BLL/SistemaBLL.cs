@@ -31,9 +31,29 @@ namespace BLL
             SistemaDAL.ExcluirClienteDAL(CodigoCliente);
         }
 
-        public static List<Cliente> BuscarClienteTipo(string[] tipos)
+        public static List<Site> BuscarSites(string[] sites)
         {
-            return SistemaDAL.BuscarClienteTipo(tipos);
+            return SistemaDAL.BuscarSites(sites);
+        }
+
+        public static Site BuscarSiteBLL(int CodigoSite)
+        {
+            return SistemaDAL.BuscarSiteDAL(CodigoSite);
+        }
+
+        public static void AtualizarSiteBLL(Site site)
+        {
+            SistemaDAL.AtualizarSiteDAL(site);
+        }
+
+        public static int InserirSiteBLL(Site site)
+        {
+            return SistemaDAL.InserirSiteDAL(site);
+        }
+
+        public static List<Site> BuscarSiteDAL(string[] filtros)
+        {
+            return SistemaDAL.BuscarSiteDAL(filtros);
         }
 
         public static int InserirProdutoBLL(Produto produto)

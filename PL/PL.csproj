@@ -33,8 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,6 +62,24 @@
     </Compile>
     <Compile Include="FrmClienteSelecionar.Designer.cs">
       <DependentUpon>FrmClienteSelecionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClienteSitesCadastrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteSitesCadastrar.Designer.cs">
+      <DependentUpon>FrmClienteSitesCadastrar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmClienteSitesSelecionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteSitesSelecionar.Designer.cs">
+      <DependentUpon>FrmClienteSitesSelecionar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCPFConsultar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCPFConsultar.Designer.cs">
+      <DependentUpon>FrmCPFConsultar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -97,6 +119,15 @@
     <EmbeddedResource Include="FrmClienteSelecionar.resx">
       <DependentUpon>FrmClienteSelecionar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteSitesCadastrar.resx">
+      <DependentUpon>FrmClienteSitesCadastrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmClienteSitesSelecionar.resx">
+      <DependentUpon>FrmClienteSitesSelecionar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCPFConsultar.resx">
+      <DependentUpon>FrmCPFConsultar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +148,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

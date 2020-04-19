@@ -56,7 +56,7 @@
             this.btnSalvar = new System.Windows.Forms.Button();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.cbSites = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtClienteLogin = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -76,6 +76,7 @@
             this.mskClienteCartao = new System.Windows.Forms.MaskedTextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnNovoSite = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtClienteNome
@@ -311,6 +312,7 @@
             // 
             // btnCancelar
             // 
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Location = new System.Drawing.Point(293, 543);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
@@ -321,6 +323,7 @@
             // 
             // btnSalvar
             // 
+            this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Location = new System.Drawing.Point(202, 543);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
@@ -331,6 +334,7 @@
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(9, 23);
             this.txtCodigo.Name = "txtCodigo";
@@ -348,14 +352,15 @@
             this.label13.TabIndex = 50;
             this.label13.Text = "Código";
             // 
-            // cbTipo
+            // cbSites
             // 
-            this.cbTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Location = new System.Drawing.Point(89, 21);
-            this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(121, 24);
-            this.cbTipo.TabIndex = 1;
+            this.cbSites.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSites.FormattingEnabled = true;
+            this.cbSites.Location = new System.Drawing.Point(89, 21);
+            this.cbSites.Name = "cbSites";
+            this.cbSites.Size = new System.Drawing.Size(182, 24);
+            this.cbSites.TabIndex = 1;
+            this.cbSites.MouseEnter += new System.EventHandler(this.cbSites_MouseEnter);
             // 
             // label14
             // 
@@ -363,9 +368,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(86, 4);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(36, 16);
+            this.label14.Size = new System.Drawing.Size(63, 16);
             this.label14.TabIndex = 52;
-            this.label14.Text = "Tipo";
+            this.label14.Text = "Tipo/Site";
             // 
             // txtClienteLogin
             // 
@@ -545,12 +550,26 @@
             this.mskClienteCartao.Size = new System.Drawing.Size(181, 22);
             this.mskClienteCartao.TabIndex = 8;
             // 
+            // btnNovoSite
+            // 
+            this.btnNovoSite.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovoSite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovoSite.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnNovoSite.Location = new System.Drawing.Point(293, 21);
+            this.btnNovoSite.Name = "btnNovoSite";
+            this.btnNovoSite.Size = new System.Drawing.Size(75, 23);
+            this.btnNovoSite.TabIndex = 70;
+            this.btnNovoSite.Text = "Novo Site";
+            this.btnNovoSite.UseVisualStyleBackColor = true;
+            this.btnNovoSite.Click += new System.EventHandler(this.btnNovoSite_Click);
+            // 
             // FrmClienteCadastrar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(375, 578);
+            this.Controls.Add(this.btnNovoSite);
             this.Controls.Add(this.mskClienteCartao);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.mskClienteDN);
@@ -567,7 +586,7 @@
             this.Controls.Add(this.label16);
             this.Controls.Add(this.txtClienteLogin);
             this.Controls.Add(this.label15);
-            this.Controls.Add(this.cbTipo);
+            this.Controls.Add(this.cbSites);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txtCodigo);
             this.Controls.Add(this.label13);
@@ -595,7 +614,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtClienteNome);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.ForeColor = System.Drawing.Color.Silver;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -635,7 +655,7 @@
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.TextBox txtCodigo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cbTipo;
+        private System.Windows.Forms.ComboBox cbSites;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox txtClienteLogin;
         private System.Windows.Forms.Label label15;
@@ -655,5 +675,6 @@
         private System.Windows.Forms.MaskedTextBox mskClienteCartao;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Button btnNovoSite;
     }
 }

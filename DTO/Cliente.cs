@@ -9,7 +9,6 @@ namespace DTO
     public class Cliente
     {
         public int Id { get; set; }
-        public string clienteTipoCadastro { get; set; }
         public string clienteNome { get; set; }
         public string clienteCPF { get; set; }
         public string clienteLogin { get; set; }
@@ -27,6 +26,9 @@ namespace DTO
         public string clienteCidade { get; set; }
         public string clienteUF { get; set; }
         public string clienteAtendente { get; set; }
-        public string clienteLinkSite { get; set; }
+        public string clienteSiteIdFk { get; set; }
+        public string clienteSiteLink { get; set; }
+
+        public string clienteSiteNome { get; set; }
     }
 }

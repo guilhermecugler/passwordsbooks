@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteSelecionar));
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
@@ -38,15 +39,15 @@
             this.btnIncluir = new System.Windows.Forms.Button();
             this.Grid = new System.Windows.Forms.DataGridView();
             this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSiteNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCPF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnLogin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEmail = new System.Windows.Forms.DataGridViewLinkColumn();
             this.ColumnSenha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCartao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCelular = new System.Windows.Forms.DataGridViewLinkColumn();
             this.ColumnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnObs = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEndereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,9 +69,12 @@
             // btnFechar
             // 
             this.btnFechar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFechar.Location = new System.Drawing.Point(605, 535);
+            this.btnFechar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFechar.ForeColor = System.Drawing.Color.Silver;
+            this.btnFechar.Location = new System.Drawing.Point(571, 521);
+            this.btnFechar.Margin = new System.Windows.Forms.Padding(4);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(75, 23);
+            this.btnFechar.Size = new System.Drawing.Size(100, 28);
             this.btnFechar.TabIndex = 8;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -79,9 +83,12 @@
             // btnExcluir
             // 
             this.btnExcluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExcluir.Location = new System.Drawing.Point(514, 535);
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluir.ForeColor = System.Drawing.Color.Silver;
+            this.btnExcluir.Location = new System.Drawing.Point(449, 521);
+            this.btnExcluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(75, 23);
+            this.btnExcluir.Size = new System.Drawing.Size(100, 28);
             this.btnExcluir.TabIndex = 7;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -90,9 +97,12 @@
             // btnAlterar
             // 
             this.btnAlterar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAlterar.Location = new System.Drawing.Point(423, 535);
+            this.btnAlterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlterar.ForeColor = System.Drawing.Color.Silver;
+            this.btnAlterar.Location = new System.Drawing.Point(328, 521);
+            this.btnAlterar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.Size = new System.Drawing.Size(100, 28);
             this.btnAlterar.TabIndex = 6;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -101,9 +111,12 @@
             // btnIncluir
             // 
             this.btnIncluir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnIncluir.Location = new System.Drawing.Point(332, 535);
+            this.btnIncluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIncluir.ForeColor = System.Drawing.Color.Silver;
+            this.btnIncluir.Location = new System.Drawing.Point(207, 521);
+            this.btnIncluir.Margin = new System.Windows.Forms.Padding(4);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(75, 23);
+            this.btnIncluir.Size = new System.Drawing.Size(100, 28);
             this.btnIncluir.TabIndex = 5;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
@@ -121,19 +134,19 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.Grid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.Grid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnID,
-            this.ColumnTipo,
+            this.ColumnSiteNome,
             this.ColumnNome,
             this.ColumnCPF,
             this.ColumnLogin,
             this.ColumnEmail,
             this.ColumnSenha,
             this.ColumnCartao,
-            this.ColumnTelefone,
             this.ColumnCelular,
+            this.ColumnTelefone,
             this.ColumnObs,
             this.ColumnDN,
             this.ColumnEndereco,
@@ -144,12 +157,13 @@
             this.ColumnUF,
             this.ColumnAtendente,
             this.ColumnSite});
-            this.Grid.Location = new System.Drawing.Point(5, 47);
+            this.Grid.Location = new System.Drawing.Point(16, 58);
+            this.Grid.Margin = new System.Windows.Forms.Padding(4);
             this.Grid.MultiSelect = false;
             this.Grid.Name = "Grid";
             this.Grid.ReadOnly = true;
             this.Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.Grid.Size = new System.Drawing.Size(675, 482);
+            this.Grid.Size = new System.Drawing.Size(655, 455);
             this.Grid.TabIndex = 4;
             this.Grid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Grid_CellContentDoubleClick);
             // 
@@ -164,21 +178,22 @@
             this.ColumnID.HeaderText = "ID";
             this.ColumnID.Name = "ColumnID";
             this.ColumnID.ReadOnly = true;
-            this.ColumnID.Width = 43;
+            this.ColumnID.Width = 46;
             // 
-            // ColumnTipo
+            // ColumnSiteNome
             // 
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
-            this.ColumnTipo.Width = 53;
+            this.ColumnSiteNome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColumnSiteNome.HeaderText = "Site";
+            this.ColumnSiteNome.Name = "ColumnSiteNome";
+            this.ColumnSiteNome.ReadOnly = true;
+            this.ColumnSiteNome.Width = 57;
             // 
             // ColumnNome
             // 
             this.ColumnNome.HeaderText = "Nome";
             this.ColumnNome.Name = "ColumnNome";
             this.ColumnNome.ReadOnly = true;
-            this.ColumnNome.Width = 60;
+            this.ColumnNome.Width = 70;
             // 
             // ColumnCPF
             // 
@@ -188,112 +203,122 @@
             this.ColumnCPF.HeaderText = "CPF";
             this.ColumnCPF.Name = "ColumnCPF";
             this.ColumnCPF.ReadOnly = true;
-            this.ColumnCPF.Width = 52;
+            this.ColumnCPF.Width = 59;
             // 
             // ColumnLogin
             // 
             this.ColumnLogin.HeaderText = "Login/Usuário";
             this.ColumnLogin.Name = "ColumnLogin";
             this.ColumnLogin.ReadOnly = true;
-            this.ColumnLogin.Width = 99;
+            this.ColumnLogin.Width = 121;
             // 
             // ColumnEmail
             // 
             this.ColumnEmail.HeaderText = "E-mail";
             this.ColumnEmail.Name = "ColumnEmail";
             this.ColumnEmail.ReadOnly = true;
-            this.ColumnEmail.Width = 60;
+            this.ColumnEmail.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnEmail.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnEmail.Width = 72;
             // 
             // ColumnSenha
             // 
             this.ColumnSenha.HeaderText = "Senha";
             this.ColumnSenha.Name = "ColumnSenha";
             this.ColumnSenha.ReadOnly = true;
-            this.ColumnSenha.Width = 63;
+            this.ColumnSenha.Width = 74;
             // 
             // ColumnCartao
             // 
             this.ColumnCartao.HeaderText = "Cartão";
             this.ColumnCartao.Name = "ColumnCartao";
             this.ColumnCartao.ReadOnly = true;
-            this.ColumnCartao.Width = 63;
+            this.ColumnCartao.Width = 75;
+            // 
+            // ColumnCelular
+            // 
+            this.ColumnCelular.ActiveLinkColor = System.Drawing.Color.DarkGreen;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ColumnCelular.DefaultCellStyle = dataGridViewCellStyle4;
+            this.ColumnCelular.HeaderText = "Celular";
+            this.ColumnCelular.LinkColor = System.Drawing.Color.Green;
+            this.ColumnCelular.Name = "ColumnCelular";
+            this.ColumnCelular.ReadOnly = true;
+            this.ColumnCelular.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnCelular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ColumnCelular.ToolTipText = "Clique para enviar mensagem via WhatsApp";
+            this.ColumnCelular.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.ColumnCelular.Width = 77;
             // 
             // ColumnTelefone
             // 
             this.ColumnTelefone.HeaderText = "Telefone";
             this.ColumnTelefone.Name = "ColumnTelefone";
             this.ColumnTelefone.ReadOnly = true;
-            this.ColumnTelefone.Width = 74;
-            // 
-            // ColumnCelular
-            // 
-            this.ColumnCelular.HeaderText = "Celular";
-            this.ColumnCelular.Name = "ColumnCelular";
-            this.ColumnCelular.ReadOnly = true;
-            this.ColumnCelular.Width = 64;
+            this.ColumnTelefone.Width = 89;
             // 
             // ColumnObs
             // 
             this.ColumnObs.HeaderText = "Observação";
             this.ColumnObs.Name = "ColumnObs";
             this.ColumnObs.ReadOnly = true;
-            this.ColumnObs.Width = 90;
+            this.ColumnObs.Width = 110;
             // 
             // ColumnDN
             // 
             this.ColumnDN.HeaderText = "Data de Nascimento";
             this.ColumnDN.Name = "ColumnDN";
             this.ColumnDN.ReadOnly = true;
-            this.ColumnDN.Width = 118;
+            this.ColumnDN.Width = 147;
             // 
             // ColumnEndereco
             // 
             this.ColumnEndereco.HeaderText = "Endereço";
             this.ColumnEndereco.Name = "ColumnEndereco";
             this.ColumnEndereco.ReadOnly = true;
-            this.ColumnEndereco.Width = 78;
+            this.ColumnEndereco.Width = 94;
             // 
             // ColumnEnderecoNumero
             // 
             this.ColumnEnderecoNumero.HeaderText = "Número";
             this.ColumnEnderecoNumero.Name = "ColumnEnderecoNumero";
             this.ColumnEnderecoNumero.ReadOnly = true;
-            this.ColumnEnderecoNumero.Width = 69;
+            this.ColumnEnderecoNumero.Width = 83;
             // 
             // ColumnEnderecoComplemento
             // 
             this.ColumnEnderecoComplemento.HeaderText = "Complemento";
             this.ColumnEnderecoComplemento.Name = "ColumnEnderecoComplemento";
             this.ColumnEnderecoComplemento.ReadOnly = true;
-            this.ColumnEnderecoComplemento.Width = 96;
+            this.ColumnEnderecoComplemento.Width = 119;
             // 
             // ColumnEnderecoBairro
             // 
             this.ColumnEnderecoBairro.HeaderText = "Bairro";
             this.ColumnEnderecoBairro.Name = "ColumnEnderecoBairro";
             this.ColumnEnderecoBairro.ReadOnly = true;
-            this.ColumnEnderecoBairro.Width = 59;
+            this.ColumnEnderecoBairro.Width = 71;
             // 
             // ColumnEnderecoCidade
             // 
             this.ColumnEnderecoCidade.HeaderText = "Cidade";
             this.ColumnEnderecoCidade.Name = "ColumnEnderecoCidade";
             this.ColumnEnderecoCidade.ReadOnly = true;
-            this.ColumnEnderecoCidade.Width = 65;
+            this.ColumnEnderecoCidade.Width = 77;
             // 
             // ColumnUF
             // 
             this.ColumnUF.HeaderText = "UF";
             this.ColumnUF.Name = "ColumnUF";
             this.ColumnUF.ReadOnly = true;
-            this.ColumnUF.Width = 46;
+            this.ColumnUF.Width = 51;
             // 
             // ColumnAtendente
             // 
             this.ColumnAtendente.HeaderText = "Atendente";
             this.ColumnAtendente.Name = "ColumnAtendente";
             this.ColumnAtendente.ReadOnly = true;
-            this.ColumnAtendente.Width = 81;
+            this.ColumnAtendente.Width = 98;
             // 
             // ColumnSite
             // 
@@ -302,21 +327,27 @@
             this.ColumnSite.ReadOnly = true;
             this.ColumnSite.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ColumnSite.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ColumnSite.Width = 75;
+            this.ColumnSite.Width = 87;
             // 
             // txtPesquisar
             // 
-            this.txtPesquisar.Location = new System.Drawing.Point(170, 8);
+            this.txtPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPesquisar.Location = new System.Drawing.Point(16, 27);
+            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(193, 20);
+            this.txtPesquisar.Size = new System.Drawing.Size(325, 23);
             this.txtPesquisar.TabIndex = 1;
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPesquisar.Location = new System.Drawing.Point(597, 7);
+            this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisar.ForeColor = System.Drawing.Color.Silver;
+            this.btnPesquisar.Location = new System.Drawing.Point(571, 24);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(4);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.Size = new System.Drawing.Size(100, 28);
             this.btnPesquisar.TabIndex = 3;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -324,9 +355,11 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(14, 12);
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(13, 9);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.Size = new System.Drawing.Size(200, 16);
             this.label1.TabIndex = 16;
             this.label1.Text = "Cliente/Telefone/CPF/Cartão:";
             // 
@@ -334,25 +367,30 @@
             // 
             this.cbTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbTipo.FormattingEnabled = true;
-            this.cbTipo.Location = new System.Drawing.Point(426, 7);
+            this.cbTipo.Location = new System.Drawing.Point(349, 27);
+            this.cbTipo.Margin = new System.Windows.Forms.Padding(4);
             this.cbTipo.Name = "cbTipo";
-            this.cbTipo.Size = new System.Drawing.Size(163, 21);
+            this.cbTipo.Size = new System.Drawing.Size(214, 24);
             this.cbTipo.TabIndex = 2;
+            this.cbTipo.MouseEnter += new System.EventHandler(this.cbTipo_MouseEnter);
             // 
             // label2
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(369, 12);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(346, 6);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.Size = new System.Drawing.Size(68, 17);
             this.label2.TabIndex = 43;
             this.label2.Text = "Tipo/Site:";
             // 
             // FrmClienteSelecionar
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
             this.ClientSize = new System.Drawing.Size(684, 562);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbTipo);
@@ -364,8 +402,10 @@
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmClienteSelecionar";
@@ -390,15 +430,15 @@
         private System.Windows.Forms.ComboBox cbTipo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSiteNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCPF;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEmail;
+        private System.Windows.Forms.DataGridViewLinkColumn ColumnEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSenha;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCartao;
+        private System.Windows.Forms.DataGridViewLinkColumn ColumnCelular;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCelular;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnObs;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEndereco;

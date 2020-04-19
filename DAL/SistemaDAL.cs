@@ -19,9 +19,8 @@ namespace DAL
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
 
-            Comando.CommandText = "INSERT tbCliente (clienteTipoCadastro, clienteNome, clienteCPF, clienteLogin, clienteEmail, clienteSenha, clienteCartao, clienteTel, clienteTelCelular, clienteObs, clienteDN, clienteLogradouro, clienteNumero, clienteComplemento, clienteBairro, clienteCidade, clienteUF, clienteAtendente, clienteLinkSite) VALUES(@clienteTipoCadastro, @clienteNome, @clienteCPF, @clienteLogin, @clienteEmail, @clienteSenha, @clienteCartao, @clienteTel, @clienteTelCelular, @clienteObs, @clienteDN, @clienteLogradouro, @clienteNumero, @clienteComplemento, @clienteBairro, @clienteCidade, @clienteUF, @clienteAtendente, @clienteLinkSite)";
+            Comando.CommandText = "INSERT tbCliente (clienteNome, clienteCPF, clienteLogin, clienteEmail, clienteSenha, clienteCartao, clienteTel, clienteTelCelular, clienteObs, clienteDN, clienteLogradouro, clienteNumero, clienteComplemento, clienteBairro, clienteCidade, clienteUF, clienteAtendente, clienteSiteIdFk) VALUES(@clienteNome, @clienteCPF, @clienteLogin, @clienteEmail, @clienteSenha, @clienteCartao, @clienteTel, @clienteTelCelular, @clienteObs, @clienteDN, @clienteLogradouro, @clienteNumero, @clienteComplemento, @clienteBairro, @clienteCidade, @clienteUF, @clienteAtendente, (SELECT siteId FROM tbSite WHERE siteNome =@Site))";
 
-            Comando.Parameters.Add("clienteTipoCadastro", MySqlDbType.VarChar).Value = cliente.clienteTipoCadastro;
             Comando.Parameters.Add("clienteNome", MySqlDbType.VarChar).Value = cliente.clienteNome;
             Comando.Parameters.Add("clienteCPF", MySqlDbType.VarChar).Value = cliente.clienteCPF;
             Comando.Parameters.Add("clienteLogin", MySqlDbType.VarChar).Value = cliente.clienteLogin;
@@ -39,7 +38,7 @@ namespace DAL
             Comando.Parameters.Add("clienteCidade", MySqlDbType.VarChar).Value = cliente.clienteCidade;
             Comando.Parameters.Add("clienteUF", MySqlDbType.VarChar).Value = cliente.clienteUF;
             Comando.Parameters.Add("clienteAtendente", MySqlDbType.VarChar).Value = cliente.clienteAtendente;
-            Comando.Parameters.Add("clienteLinkSite", MySqlDbType.VarChar).Value = cliente.clienteLinkSite;
+            Comando.Parameters.Add("Site", MySqlDbType.VarChar).Value = cliente.clienteSiteIdFk;
 
             Conexao.Open();
             Comando.ExecuteNonQuery();
@@ -55,7 +54,7 @@ namespace DAL
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
 
-            Comando.CommandText = "SELECT clienteId, clienteTipoCadastro, clienteNome, clienteCPF, clienteLogin, clienteEmail, clienteSenha, clienteCartao, clienteTel, clienteTelCelular, clienteObs, clienteDN, clienteLogradouro, clienteNumero, clienteComplemento, clienteBairro, clienteCidade, clienteUF, clienteAtendente, clienteLinkSite FROM tbCliente WHERE 1 = 1";
+            Comando.CommandText = "SELECT c.clienteId, c.clienteNome, s.siteNome, c.clienteCPF, c.clienteLogin, c.clienteEmail, c.clienteSenha, c.clienteCartao, c.clienteTel, c.clienteTelCelular, c.clienteObs, c.clienteDN, c.clienteLogradouro, c.clienteNumero, c.clienteComplemento, c.clienteBairro, c.clienteCidade, c.clienteUF, c.clienteAtendente, s.siteLink FROM tbCliente AS c INNER JOIN tbSite AS s ON (c.clienteSiteIdFk=s.siteId) WHERE 1 = 1";
 
             if (filtros[0] != String.Empty)
             {
@@ -64,8 +63,8 @@ namespace DAL
             }
             if(filtros[1] != String.Empty)
             {
-                Comando.CommandText += " AND clienteTipoCadastro LIKE @clienteTipo";;
-                Comando.Parameters.AddWithValue("@clienteTipo", "%" + filtros[1] + "%");
+                Comando.CommandText += " AND s.siteNome LIKE @Site";;
+                Comando.Parameters.AddWithValue("@Site", "%" + filtros[1] + "%");
             }
 
             Console.WriteLine(Comando.CommandText);
@@ -81,7 +80,7 @@ namespace DAL
                 {
                     Cliente cliente = new Cliente();
                     cliente.Id = Convert.ToInt32(Dr["clienteId"]);
-                    cliente.clienteTipoCadastro = Convert.ToString(Dr["clienteTipoCadastro"]);
+                    cliente.clienteSiteNome = Convert.ToString(Dr["siteNome"]);
                     cliente.clienteNome = Convert.ToString(Dr["clienteNome"]);
                     cliente.clienteCPF = Convert.ToString(Dr["clienteCPF"]);
                     cliente.clienteLogin = Convert.ToString(Dr["clienteLogin"]);
@@ -99,7 +98,8 @@ namespace DAL
                     cliente.clienteCidade = Convert.ToString(Dr["clienteCidade"]);
                     cliente.clienteUF = Convert.ToString(Dr["clienteUF"]);
                     cliente.clienteAtendente = Convert.ToString(Dr["clienteAtendente"]);
-                    cliente.clienteLinkSite = Convert.ToString(Dr["clienteLinkSite"]);
+                    cliente.clienteSiteLink = Convert.ToString(Dr["siteLink"]);
+
 
                     Clientes.Add(cliente);
                 }
@@ -127,7 +127,7 @@ namespace DAL
 
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "SELECT clienteId, clienteTipoCadastro, clienteNome, clienteCPF, clienteLogin, clienteEmail, clienteSenha, clienteCartao, clienteTel, clienteTelCelular, clienteObs, clienteDN, clienteLogradouro, clienteNumero, clienteComplemento, clienteBairro, clienteCidade, clienteUF, clienteAtendente, clienteLinkSite FROM tbCliente WHERE clienteId = @IdCliente";
+            Comando.CommandText = "SELECT c.clienteId, c.clienteNome, c.clienteCPF, c.clienteLogin, c.clienteEmail, c.clienteSenha, c.clienteCartao, c.clienteTel, c.clienteTelCelular, c.clienteObs, c.clienteDN, c.clienteLogradouro, c.clienteNumero, c.clienteComplemento, c.clienteBairro, c.clienteCidade, c.clienteUF, c.clienteAtendente, s.siteNome FROM tbCliente AS c INNER JOIN tbSite AS s ON (c.clienteSiteIdFk=s.siteId) WHERE clienteId = @IdCliente";
             Comando.Parameters.Add("IdCliente", MySqlDbType.Int32).Value = CodigoCliente;
 
             Conexao.Open();
@@ -140,7 +140,6 @@ namespace DAL
                 while (Dr.Read())
                 {
                     cliente.Id = Convert.ToInt32(Dr["clienteId"]);
-                    cliente.clienteTipoCadastro = Convert.ToString(Dr["clienteTipoCadastro"]);
                     cliente.clienteNome = Convert.ToString(Dr["clienteNome"]);
                     cliente.clienteCPF = Convert.ToString(Dr["clienteCPF"]);
                     cliente.clienteLogin = Convert.ToString(Dr["clienteLogin"]);
@@ -158,7 +157,7 @@ namespace DAL
                     cliente.clienteCidade = Convert.ToString(Dr["clienteCidade"]);
                     cliente.clienteUF = Convert.ToString(Dr["clienteUF"]);
                     cliente.clienteAtendente = Convert.ToString(Dr["clienteAtendente"]);
-                    cliente.clienteLinkSite = Convert.ToString(Dr["clienteLinkSite"]);
+                    cliente.clienteSiteNome = Convert.ToString(Dr["siteNome"]);
                 }
             }
 
@@ -171,8 +170,7 @@ namespace DAL
 
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
-            Comando.CommandText = "UPDATE tbCliente SET clienteNome = @clienteNome, clienteCPF = @clienteCPF, clienteLogin = @clienteLogin, clienteEmail = @clienteEmail, clienteSenha = @clienteSenha, clienteCartao = @clienteCartao, clienteTel = @clienteTel, clienteTelCelular = @clienteTelCelular, clienteObs = @clienteObs, clienteDN = @clienteDN, clienteLogradouro = @clienteLogradouro, clienteNumero = @clienteNumero, clienteComplemento = @clienteComplemento, clienteBairro = @clienteBairro, clienteCidade = @clienteCidade, clienteUF = @clienteUF, clienteAtendente = @clienteAtendente, clienteLinkSite = @clienteLinkSite WHERE clienteId = @IdCliente";
-            Comando.Parameters.Add("clienteTipoCadastro", MySqlDbType.VarChar).Value = cliente.clienteTipoCadastro;
+            Comando.CommandText = "UPDATE tbCliente SET clienteNome = @clienteNome, clienteCPF = @clienteCPF, clienteLogin = @clienteLogin, clienteEmail = @clienteEmail, clienteSenha = @clienteSenha, clienteCartao = @clienteCartao, clienteTel = @clienteTel, clienteTelCelular = @clienteTelCelular, clienteObs = @clienteObs, clienteDN = @clienteDN, clienteLogradouro = @clienteLogradouro, clienteNumero = @clienteNumero, clienteComplemento = @clienteComplemento, clienteBairro = @clienteBairro, clienteCidade = @clienteCidade, clienteUF = @clienteUF, clienteAtendente = @clienteAtendente WHERE clienteId = @IdCliente";
             Comando.Parameters.Add("clienteNome", MySqlDbType.VarChar).Value = cliente.clienteNome;
             Comando.Parameters.Add("clienteCPF", MySqlDbType.VarChar).Value = cliente.clienteCPF;
             Comando.Parameters.Add("clienteLogin", MySqlDbType.VarChar).Value = cliente.clienteLogin;
@@ -190,14 +188,13 @@ namespace DAL
             Comando.Parameters.Add("clienteCidade", MySqlDbType.VarChar).Value = cliente.clienteCidade;
             Comando.Parameters.Add("clienteUF", MySqlDbType.VarChar).Value = cliente.clienteUF;
             Comando.Parameters.Add("clienteAtendente", MySqlDbType.VarChar).Value = cliente.clienteAtendente;
-            Comando.Parameters.Add("clienteLinkSite", MySqlDbType.VarChar).Value = cliente.clienteLinkSite;
             Comando.Parameters.Add("IdCliente", MySqlDbType.Int32).Value = cliente.Id;
 
             Conexao.Open();
             Comando.ExecuteNonQuery();
         }
 
-        public static List<Cliente> BuscarClienteTipo(string[] tipos)
+        public static List<Site> BuscarSites(string[] sites)
         {
             MySqlConnection Conexao = new MySqlConnection();
             Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
@@ -205,27 +202,128 @@ namespace DAL
             MySqlCommand Comando = new MySqlCommand();
             Comando.Connection = Conexao;
 
-            Comando.CommandText = "SELECT DISTINCT clienteTipoCadastro FROM tbCliente ORDER BY clienteTipoCadastro";
+            Comando.CommandText = "SELECT DISTINCT siteNome FROM tbSite ORDER BY siteNome";
 
             Conexao.Open();
             MySqlDataReader Dr = Comando.ExecuteReader();
 
-            List<Cliente> Clientes = new List<Cliente>();
+            List<Site> Sites = new List<Site>();
 
             if (Dr.HasRows)
             {
                 while (Dr.Read())
                 {
-                    Cliente cliente = new Cliente();
-                    cliente.clienteTipoCadastro = Convert.ToString(Dr["clienteTipoCadastro"]);
+                    Site site = new Site();
+                    site.siteNome = Convert.ToString(Dr["siteNome"]);
 
-                    Clientes.Add(cliente);
+                    Sites.Add(site);
                 }
             }
 
-            return Clientes;
+            return Sites;
         }
 
+        public static Site BuscarSiteDAL(int CodigoSite)
+        {
+            MySqlConnection Conexao = new MySqlConnection();
+            Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
+
+            MySqlCommand Comando = new MySqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "SELECT siteId, siteNome, siteLink FROM tbSite WHERE siteId = @siteId";
+            Comando.Parameters.Add("siteId", MySqlDbType.Int32).Value = CodigoSite;
+
+            Conexao.Open();
+            MySqlDataReader Dr = Comando.ExecuteReader();
+
+            Site site = new Site();
+
+            if (Dr.HasRows)
+            {
+                while (Dr.Read())
+                {
+                    site.Id = Convert.ToInt32(Dr["siteId"]);
+                    site.siteNome = Convert.ToString(Dr["siteNome"]);
+                    site.siteLink = Convert.ToString(Dr["siteLink"]);
+                }
+            }
+
+            return site;
+        }
+        public static void AtualizarSiteDAL(Site site)
+        {
+            MySqlConnection Conexao = new MySqlConnection();
+            Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
+
+            MySqlCommand Comando = new MySqlCommand();
+            Comando.Connection = Conexao;
+            Comando.CommandText = "UPDATE tbSite SET siteNome = @siteNome, siteLink = @siteLink WHERE siteId= @siteId";
+            Comando.Parameters.Add("siteNome", MySqlDbType.VarChar).Value = site.siteNome;
+            Comando.Parameters.Add("siteLink", MySqlDbType.VarChar).Value = site.siteLink;
+            Comando.Parameters.Add("siteId", MySqlDbType.Int32).Value = site.Id;
+
+            Conexao.Open();
+            Comando.ExecuteNonQuery();
+        }
+
+        public static int InserirSiteDAL(Site site)
+        {
+            MySqlConnection Conexao = new MySqlConnection();
+            Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
+
+            MySqlCommand Comando = new MySqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "INSERT tbSite (siteNome, siteLink) VALUES(@siteNome, @siteLink)";
+
+            Comando.Parameters.Add("siteNome", MySqlDbType.VarChar).Value = site.siteNome;
+            Comando.Parameters.Add("siteLink", MySqlDbType.VarChar).Value = site.siteLink;
+  
+            Conexao.Open();
+            Comando.ExecuteNonQuery();
+
+            Comando.CommandText = "SELECT MAX(siteId) FROM tbSite";
+            return int.Parse(Comando.ExecuteScalar().ToString());
+        }
+
+        public static List<Site> BuscarSiteDAL(string[] filtros)
+        {
+            MySqlConnection Conexao = new MySqlConnection();
+            Conexao.ConnectionString = "server=35.193.155.168;user id=admin;password=1022890244Gui;persistsecurityinfo=True;database=dbpasswordsbook";
+
+            MySqlCommand Comando = new MySqlCommand();
+            Comando.Connection = Conexao;
+
+            Comando.CommandText = "SELECT siteId, siteNome, siteLink FROM tbSite WHERE 1 = 1";
+
+            if (filtros[0] != String.Empty)
+            {
+                Comando.CommandText += " AND (siteNome LIKE @Site OR siteLink LIKE @Site)";
+                Comando.Parameters.AddWithValue("@Site", "%" + filtros[0] + "%");
+            }
+
+            Console.WriteLine(Comando.CommandText);
+
+            Conexao.Open();
+            MySqlDataReader Dr = Comando.ExecuteReader();
+
+            List<Site> Sites = new List<Site>();
+
+            if (Dr.HasRows)
+            {
+                while (Dr.Read())
+                {
+                    Site site = new Site();
+                    site.Id = Convert.ToInt32(Dr["siteId"]);
+                    site.siteNome = Convert.ToString(Dr["siteNome"]);
+                    site.siteLink = Convert.ToString(Dr["siteLink"]);
+
+                    Sites.Add(site);
+                }
+            }
+
+            return Sites;
+        }
         public static int InserirProdutoDAL(Produto produto)
         {
             MySqlConnection Conexao = new MySqlConnection();

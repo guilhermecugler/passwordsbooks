@@ -10,7 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
-
+using System.Net.Http;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
+using System.IO;
 
 namespace PL
 {
@@ -19,8 +22,6 @@ namespace PL
         public FrmClienteSelecionar(Acao acao)
         {
             InitializeComponent();
-            fillTipos();
-
         }
 
         void fillTipos()
@@ -28,14 +29,13 @@ namespace PL
 
             cbTipo.Items.Clear();
 
-            string[] tipos = {};
+            string[] sites = {};
 
-            List<Cliente> Tipos = SistemaBLL.BuscarClienteTipo(tipos);
+            List<Site> Sites = SistemaBLL.BuscarSites(sites);
 
-            foreach (var tipo in Tipos)
+            foreach (var site in Sites)
             {
-                cbTipo.Items.Add(tipo.clienteTipoCadastro);
-
+                cbTipo.Items.Add(site.siteNome);
             }
 
         }
@@ -47,7 +47,7 @@ namespace PL
 
             if (result == DialogResult.OK)
             {
-                string[] linhaCliente = { frmClienteCadastrar.cliente.Id.ToString(), frmClienteCadastrar.cliente.clienteTipoCadastro, frmClienteCadastrar.cliente.clienteNome, frmClienteCadastrar.cliente.clienteCPF, frmClienteCadastrar.cliente.clienteLogin, frmClienteCadastrar.cliente.clienteEmail, frmClienteCadastrar.cliente.clienteSenha, frmClienteCadastrar.cliente.clienteCartao, frmClienteCadastrar.cliente.clienteTel, frmClienteCadastrar.cliente.clienteTelCelular, frmClienteCadastrar.cliente.clienteObs, frmClienteCadastrar.cliente.clienteDN, frmClienteCadastrar.cliente.clienteLogradouro, frmClienteCadastrar.cliente.clienteNumero, frmClienteCadastrar.cliente.clienteComplemento, frmClienteCadastrar.cliente.clienteBairro, frmClienteCadastrar.cliente.clienteCidade, frmClienteCadastrar.cliente.clienteUF, frmClienteCadastrar.cliente.clienteAtendente, frmClienteCadastrar.cliente.clienteLinkSite };
+                string[] linhaCliente = { frmClienteCadastrar.cliente.Id.ToString(), frmClienteCadastrar.cliente.clienteNome, frmClienteCadastrar.cliente.clienteCPF, frmClienteCadastrar.cliente.clienteLogin, frmClienteCadastrar.cliente.clienteEmail, frmClienteCadastrar.cliente.clienteSenha, frmClienteCadastrar.cliente.clienteCartao, frmClienteCadastrar.cliente.clienteTel, frmClienteCadastrar.cliente.clienteTelCelular, frmClienteCadastrar.cliente.clienteObs, frmClienteCadastrar.cliente.clienteDN, frmClienteCadastrar.cliente.clienteLogradouro, frmClienteCadastrar.cliente.clienteNumero, frmClienteCadastrar.cliente.clienteComplemento, frmClienteCadastrar.cliente.clienteBairro, frmClienteCadastrar.cliente.clienteCidade, frmClienteCadastrar.cliente.clienteUF, frmClienteCadastrar.cliente.clienteAtendente };
                 Grid.Rows.Add(linhaCliente);
             }
         }
@@ -67,23 +67,33 @@ namespace PL
 
             foreach (var cliente in Clientes)
             {
-                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteTipoCadastro, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTel, cliente.clienteTelCelular, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteLinkSite };
+                string[] linhaCliente = { cliente.Id.ToString(), cliente.clienteSiteNome, cliente.clienteNome, cliente.clienteCPF, cliente.clienteLogin, cliente.clienteEmail, cliente.clienteSenha, cliente.clienteCartao, cliente.clienteTelCelular, cliente.clienteTel, cliente.clienteObs, cliente.clienteDN, cliente.clienteLogradouro, cliente.clienteNumero, cliente.clienteComplemento, cliente.clienteBairro, cliente.clienteCidade, cliente.clienteUF, cliente.clienteAtendente, cliente.clienteSiteLink };
                 Grid.Rows.Add(linhaCliente);
             }
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            int CodigoClienteLinhaSelecionada = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
-
-            FrmClienteCadastrar frmClienteCadastrar = new FrmClienteCadastrar(CodigoClienteLinhaSelecionada);
-            var result = frmClienteCadastrar.ShowDialog();
-
-            if (result == DialogResult.OK)
+            
+            if (Grid.CurrentCell != null)
             {
-                Grid.Rows.Clear();
-                string[] linhaCliente = { frmClienteCadastrar.cliente.Id.ToString(), frmClienteCadastrar.cliente.clienteTipoCadastro, frmClienteCadastrar.cliente.clienteNome, frmClienteCadastrar.cliente.clienteCPF, frmClienteCadastrar.cliente.clienteLogin, frmClienteCadastrar.cliente.clienteEmail, frmClienteCadastrar.cliente.clienteSenha, frmClienteCadastrar.cliente.clienteCartao, frmClienteCadastrar.cliente.clienteTel, frmClienteCadastrar.cliente.clienteTelCelular, frmClienteCadastrar.cliente.clienteObs, frmClienteCadastrar.cliente.clienteDN, frmClienteCadastrar.cliente.clienteLogradouro, frmClienteCadastrar.cliente.clienteNumero, frmClienteCadastrar.cliente.clienteComplemento, frmClienteCadastrar.cliente.clienteBairro, frmClienteCadastrar.cliente.clienteCidade, frmClienteCadastrar.cliente.clienteUF, frmClienteCadastrar.cliente.clienteAtendente, frmClienteCadastrar.cliente.clienteLinkSite };
-                Grid.Rows.Add(linhaCliente);
+
+                int CodigoClienteLinhaSelecionada = int.Parse(Grid.CurrentRow.Cells["ColumnID"].Value.ToString());
+
+                FrmClienteCadastrar frmClienteCadastrar = new FrmClienteCadastrar(CodigoClienteLinhaSelecionada);
+                var result = frmClienteCadastrar.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    Grid.Rows.Clear();
+                    string[] linhaCliente = { frmClienteCadastrar.cliente.Id.ToString(), frmClienteCadastrar.cliente.clienteNome, frmClienteCadastrar.cliente.clienteCPF, frmClienteCadastrar.cliente.clienteLogin, frmClienteCadastrar.cliente.clienteEmail, frmClienteCadastrar.cliente.clienteSenha, frmClienteCadastrar.cliente.clienteCartao, frmClienteCadastrar.cliente.clienteTel, frmClienteCadastrar.cliente.clienteTelCelular, frmClienteCadastrar.cliente.clienteObs, frmClienteCadastrar.cliente.clienteDN, frmClienteCadastrar.cliente.clienteLogradouro, frmClienteCadastrar.cliente.clienteNumero, frmClienteCadastrar.cliente.clienteComplemento, frmClienteCadastrar.cliente.clienteBairro, frmClienteCadastrar.cliente.clienteCidade, frmClienteCadastrar.cliente.clienteUF, frmClienteCadastrar.cliente.clienteAtendente };
+                    Grid.Rows.Add(linhaCliente);
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um cliente para alterar!");
             }
         }
 
@@ -109,8 +119,25 @@ namespace PL
                 Process.Start(Grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
                 return;
             }
+
+            if (cellLink.ColumnIndex == this.Grid.Columns["ColumnCelular"].Index)
+            {
+                Process.Start("https://api.whatsapp.com/send?l=pt-BR&phone=55"+Grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                return;
+            }
+
+            if (cellLink.ColumnIndex == this.Grid.Columns["ColumnEmail"].Index)
+            {
+                Process.Start("mailto:" + Grid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                return;
+            }
+
             btnAlterar_Click(null, null);
         }
 
+        private void cbTipo_MouseEnter(object sender, EventArgs e)
+        {
+            fillTipos();
+        }
     }
 }

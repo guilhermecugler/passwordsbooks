@@ -14,19 +14,19 @@ namespace PL
 {
     public partial class FrmClienteCadastrar : Form
     {
-
-        void fillTipos()
+        //Função para preencher combobox com tipos de sites do banco
+        void fillSites()
         {
 
-            cbTipo.Items.Clear();
+            cbSites.Items.Clear();
 
-            string[] tipos = { };
+            string[] sites = { };
 
-            List<Cliente> Tipos = SistemaBLL.BuscarClienteTipo(tipos);
+            List<Site> Sites = SistemaBLL.BuscarSites(sites);
 
-            foreach (var tipo in Tipos)
+            foreach (var site in Sites)
             {
-                cbTipo.Items.Add(tipo.clienteTipoCadastro);
+                cbSites.Items.Add(site.siteNome);
 
             }
 
@@ -43,7 +43,7 @@ namespace PL
         public FrmClienteCadastrar(int CodigoCliente)
         {
             InitializeComponent();
-            fillTipos();
+
 
             if (CodigoCliente != 0)
             {
@@ -54,7 +54,8 @@ namespace PL
                 mskClienteTelCelular.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
                 mskAdicional.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-                cbTipo.Text = cliente.clienteTipoCadastro;
+                cbSites.Items.Insert(0, cliente.clienteSiteNome);
+                cbSites.SelectedIndex = 0;
                 txtClienteNome.Text = cliente.clienteNome;
                 mskClienteCPF.Text = cliente.clienteCPF;
                 txtClienteLogin.Text = cliente.clienteLogin;
@@ -72,7 +73,6 @@ namespace PL
                 txtClienteCidade.Text = cliente.clienteCidade;
                 txtClienteUF.Text = cliente.clienteUF;
                 txtClienteAtendente.Text = cliente.clienteAtendente;
-                txtClienteLinkSite.Text = cliente.clienteLinkSite;
             }
         }
 
@@ -83,6 +83,8 @@ namespace PL
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            string acao = null;
+
             if (cliente == null)
                 cliente = new Cliente();
             //Removendo máscara para salvar no banco o atributo bruto
@@ -92,7 +94,6 @@ namespace PL
             mskClienteDN.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
             mskClienteCartao.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
 
-            cliente.clienteTipoCadastro = cbTipo.Text.ToUpper();
             cliente.clienteNome = txtClienteNome.Text.ToUpper();
             cliente.clienteCPF = mskClienteCPF.Text.ToUpper();
             cliente.clienteLogin = txtClienteLogin.Text;
@@ -110,17 +111,41 @@ namespace PL
             cliente.clienteCidade = txtClienteCidade.Text.ToUpper();
             cliente.clienteUF = txtClienteUF.Text.ToUpper();
             cliente.clienteAtendente = txtClienteAtendente.Text.ToUpper();
-            cliente.clienteLinkSite = txtClienteLinkSite.Text;
+            cliente.clienteSiteIdFk = cbSites.Text;
+
 
 
             if (cliente.Id == 0)
+            {
                 cliente.Id = SistemaBLL.InserirClienteBLL(cliente);
+                acao = "cadastrado";
+            }
             else
+            {
                 SistemaBLL.AtualizarClienteBLL(cliente);
+                acao = "atualizado";
+            }
 
-            MessageBox.Show("Cliente " + cliente.clienteNome.ToString() + " cadastrado com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cliente " + cliente.clienteNome.ToString() + " " + acao + " com sucesso.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             DialogResult = DialogResult.OK;
+        }
+
+        private void btnNovoSite_Click(object sender, EventArgs e)
+        {
+            FrmClienteSitesCadastrar frmClienteSitesCadastrar = new FrmClienteSitesCadastrar();
+            var resultSite = frmClienteSitesCadastrar.ShowDialog();
+
+            if (resultSite == DialogResult.OK)
+            {
+                string[] cbSiteNovo = { frmClienteSitesCadastrar.site.siteNome };
+                cbSites.Text = frmClienteSitesCadastrar.site.siteNome;
+            }
+        }
+
+        private void cbSites_MouseEnter(object sender, EventArgs e)
+        {
+            fillSites();
         }
     }
 }
