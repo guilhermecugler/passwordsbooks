@@ -8,56 +8,58 @@ namespace DTO
 {
     public class Calculo
     {
-        public double x1 { get; set; }
-        public double y1 { get; set; }
-        public double x2 { get; set; }
-        public double y2 { get; set; }
-        public double calcularDistancia(double x1, double y1, double x2, double y2)
+        public double latitude1 { get; set; }
+        public double longitude1 { get; set; }
+        public double latitude2 { get; set; }
+        public double longitude2 { get; set; }
+        public double calculateDistanceBetween2Points(double latitude1, double longitude1, double latitude2, double longitude2)
         {
-            double x = x2 - x1;
-            double y = y2 - y1;
+            double latitude = latitude2 - latitude1;
+            double longitude = longitude2 - longitude1;
 
-            double distancia = Math.Sqrt(Math.Pow(y, 2) + Math.Pow(x, 2));
+            double distance = Math.Sqrt(Math.Pow(longitude, 2) + Math.Pow(latitude, 2));
 
-            return distancia;
+            return distance;
         }
-       // public double azimute { get; set; }
 
-        public double calcularAzimute(double x1, double y1, double x2, double y2)
+        public double calculateAzimuth(double latitude1, double longitude1, double latitude2, double longitude2)
         {
-            double dx, dy, az;
 
-            dx = x2 - x1;
-            dy = y2 - y1;
+            double azimuth;
 
-            if (dy == 0)
+            double distanceLatitude = latitude2 - latitude1;
+            double distanceLongitude = longitude2 - longitude1;
+
+            if (distanceLongitude == 0)
             {
-                az = 90;
+                azimuth = 90;
             }
             else
             {
-                double result = Math.Atan(dx / dy) * (180 / Math.PI);
-                az = result;
+                double result = Math.Atan(distanceLatitude / distanceLongitude) * (180 / Math.PI);
+                azimuth = result;
             }
 
-            if (dx >= 0 && dy >= 0)
+            if (distanceLatitude >= 0 && distanceLongitude >= 0)
             {
-                az = az;
+                #pragma warning disable CS1717 // Atribuição feita à mesma variável
+                azimuth = azimuth;
+                #pragma warning restore CS1717 // Atribuição feita à mesma variável
             }
-            else if (dx >= 0 && dy <= 0)
+            else if (distanceLatitude >= 0 && distanceLongitude <= 0)
             {
-                az = az + 180;
+                azimuth = azimuth + 180;
             }
-            else if (dx <= 0 && dy <= 0)
+            else if (distanceLatitude <= 0 && distanceLongitude <= 0)
             {
-                az = az + 180;
+                azimuth = azimuth + 180;
             }
             else
             {
-                az = az + 360;
+                azimuth = azimuth + 360;
             }
 
-            return az;
+            return azimuth;
 
         }
     }

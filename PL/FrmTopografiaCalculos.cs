@@ -30,43 +30,43 @@ namespace PL
         {
  
 
-            calculo.x1 =  Convert.ToDouble(txtEstacaoLat.Text);
-            calculo.y1 = Convert.ToDouble(txtEstacaoLong.Text);
-            calculo.x2 = Convert.ToDouble(txtLatitude.Text);
-            calculo.y2 = Convert.ToDouble(txtLongitude.Text);
+            calculo.latitude1 =  Convert.ToDouble(txtEstacaoLat.Text);
+            calculo.longitude1 = Convert.ToDouble(txtEstacaoLong.Text);
+            calculo.latitude2 = Convert.ToDouble(txtLatitude.Text);
+            calculo.longitude2 = Convert.ToDouble(txtLongitude.Text);
 
-            var azimute = calculo.calcularAzimute(calculo.x1, calculo.y1, calculo.x2, calculo.y2);
-            var distancia = calculo.calcularDistancia(calculo.x1, calculo.y1, calculo.x2, calculo.y2).ToString("N0");
+            var azimuth = calculo.calculateAzimuth(calculo.latitude1, calculo.longitude1, calculo.latitude2, calculo.longitude2);
+            var distance = calculo.calculateDistanceBetween2Points(calculo.latitude1, calculo.longitude1, calculo.latitude2, calculo.longitude2).ToString("N0");
 
 
-            string[] linhaCalculo = { distancia, ConvertDecimal(azimute), calculo.x2.ToString("N0"), calculo.y2.ToString("N0") };
-            Grid.Rows.Add(linhaCalculo);
+            string[] gridLine = { distance, ConvertDecimalToDegreesMinutesAndSecondsReturnsString(azimuth), calculo.latitude2.ToString("N0"), calculo.longitude2.ToString("N0") };
+            Grid.Rows.Add(gridLine);
 
-            calculo.x1 = 0;
-            calculo.y1 = 0;
-            calculo.x2 = 0;
-            calculo.y2 = 0;
+            calculo.latitude1 = 0;
+            calculo.longitude1 = 0;
+            calculo.latitude2 = 0;
+            calculo.longitude2 = 0;
 
             
         }
 
 
         //Converter decimais para graus, minutos e segundos
-        string ConvertDecimal(double azimute)
+        string ConvertDecimalToDegreesMinutesAndSecondsReturnsString(double Decimal)
         {
-            double segundos = azimute * 3600;
-            double graus = segundos / 3600;
-            segundos = Math.Abs(segundos % 3600);
-            double minutos = segundos / 60;
-            segundos %= 60;
+            double seconds = Decimal * 3600;
+            double degrees = seconds / 3600;
+            seconds = Math.Abs(seconds % 3600);
+            double minutes = seconds / 60;
+            seconds %= 60;
 
-            string convetido = (
-                Math.Round(graus)+"°",
-                Math.Round(minutos).ToString("00")+"'",
-                segundos.ToString("F")+"\""
+            string stringDegreesMinutesAndSeconds = (
+                Math.Round(degrees)+"°",
+                Math.Round(minutes).ToString("00")+"'",
+                Math.Round(seconds).ToString()+"\""
                 ).ToString().Replace("(", "").Replace(")", "");
 
-            return convetido;
+            return stringDegreesMinutesAndSeconds;
         }
 
     }

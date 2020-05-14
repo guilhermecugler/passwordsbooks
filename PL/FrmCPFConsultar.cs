@@ -52,7 +52,7 @@ namespace PL
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            getRequest();
+            _ = getRequest();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
