@@ -23,12 +23,20 @@ namespace PL
             //customizando menus
             panelSubMenuCadastros.Visible = false;
             panelSubMenuConsultas.Visible = false;
+            panelSubMenuTopografia.Visible = false;
         }
 
         private void hideSubMenu()
         {
             if (panelSubMenuCadastros.Visible == true)
                 panelSubMenuCadastros.Visible = false;
+
+            if (panelSubMenuConsultas.Visible == true)
+                panelSubMenuConsultas.Visible = false;
+
+
+            if (panelSubMenuTopografia.Visible == true)
+                panelSubMenuTopografia.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -94,6 +102,17 @@ namespace PL
         {
             openChildForm(new FrmCPFConsultar());
             hideSubMenu();
+        }
+
+        private void btnCalculos_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmTopografiaCalculos());
+            hideSubMenu();
+        }
+
+        private void btnTopografia_Click(object sender, EventArgs e)
+        {
+            showSubMenu(panelSubMenuTopografia);
         }
     }
 }

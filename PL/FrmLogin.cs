@@ -24,6 +24,7 @@ namespace PL
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             FrmHome frmHome = new FrmHome();
             frmHome.ShowDialog();
         }
