@@ -114,5 +114,11 @@ namespace PL
         {
             showSubMenu(panelSubMenuTopografia);
         }
+
+        private void btnProduto_Click(object sender, EventArgs e)
+        {
+            openChildForm(new FrmProdutoSelecionar());
+            hideSubMenu();
+        }
     }
 }

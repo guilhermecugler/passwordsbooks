@@ -30,31 +30,32 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHome));
             this.panelSideMenu = new System.Windows.Forms.Panel();
-            this.panelSubMenuConsultas = new System.Windows.Forms.Panel();
-            this.panelSubMenuCadastros = new System.Windows.Forms.Panel();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.panelChildForm = new System.Windows.Forms.Panel();
             this.panelSubMenuTopografia = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnCalculos = new System.Windows.Forms.Button();
             this.btnTopografia = new System.Windows.Forms.Button();
+            this.panelSubMenuConsultas = new System.Windows.Forms.Panel();
             this.btnConsultaCNPJ = new System.Windows.Forms.Button();
             this.btnConsultaCPF = new System.Windows.Forms.Button();
             this.btnConsultas = new System.Windows.Forms.Button();
             this.btnMenuSair = new System.Windows.Forms.Button();
+            this.panelSubMenuCadastros = new System.Windows.Forms.Panel();
+            this.btnProduto = new System.Windows.Forms.Button();
             this.btnSites = new System.Windows.Forms.Button();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCadastros = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panelChildForm = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelSideMenu.SuspendLayout();
+            this.panelSubMenuTopografia.SuspendLayout();
             this.panelSubMenuConsultas.SuspendLayout();
             this.panelSubMenuCadastros.SuspendLayout();
             this.panelLogo.SuspendLayout();
-            this.panelChildForm.SuspendLayout();
-            this.panelSubMenuTopografia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelChildForm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSideMenu
@@ -75,70 +76,16 @@
             this.panelSideMenu.Size = new System.Drawing.Size(250, 562);
             this.panelSideMenu.TabIndex = 0;
             // 
-            // panelSubMenuConsultas
-            // 
-            this.panelSubMenuConsultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCNPJ);
-            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCPF);
-            this.panelSubMenuConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuConsultas.Location = new System.Drawing.Point(0, 276);
-            this.panelSubMenuConsultas.Name = "panelSubMenuConsultas";
-            this.panelSubMenuConsultas.Size = new System.Drawing.Size(250, 91);
-            this.panelSubMenuConsultas.TabIndex = 5;
-            // 
-            // panelSubMenuCadastros
-            // 
-            this.panelSubMenuCadastros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
-            this.panelSubMenuCadastros.Controls.Add(this.btnSites);
-            this.panelSubMenuCadastros.Controls.Add(this.btnClientes);
-            this.panelSubMenuCadastros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuCadastros.Location = new System.Drawing.Point(0, 140);
-            this.panelSubMenuCadastros.Name = "panelSubMenuCadastros";
-            this.panelSubMenuCadastros.Size = new System.Drawing.Size(250, 91);
-            this.panelSubMenuCadastros.TabIndex = 2;
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panelLogo.Controls.Add(this.pictureBox2);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 95);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // panelChildForm
-            // 
-            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
-            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panelChildForm.Controls.Add(this.pictureBox1);
-            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
-            this.panelChildForm.Name = "panelChildForm";
-            this.panelChildForm.Size = new System.Drawing.Size(684, 562);
-            this.panelChildForm.TabIndex = 1;
-            // 
             // panelSubMenuTopografia
             // 
             this.panelSubMenuTopografia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
             this.panelSubMenuTopografia.Controls.Add(this.button1);
             this.panelSubMenuTopografia.Controls.Add(this.btnCalculos);
             this.panelSubMenuTopografia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelSubMenuTopografia.Location = new System.Drawing.Point(0, 412);
+            this.panelSubMenuTopografia.Location = new System.Drawing.Point(0, 477);
             this.panelSubMenuTopografia.Name = "panelSubMenuTopografia";
-            this.panelSubMenuTopografia.Size = new System.Drawing.Size(250, 91);
+            this.panelSubMenuTopografia.Size = new System.Drawing.Size(233, 91);
             this.panelSubMenuTopografia.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = global::PL.Properties.Resources.undraw_programming_2svr;
-            this.pictureBox1.Location = new System.Drawing.Point(53, 140);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(579, 268);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -153,7 +100,7 @@
             this.button1.Location = new System.Drawing.Point(0, 40);
             this.button1.Name = "button1";
             this.button1.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(250, 40);
+            this.button1.Size = new System.Drawing.Size(233, 40);
             this.button1.TabIndex = 1;
             this.button1.Text = "     Calcultar Distância";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -173,7 +120,7 @@
             this.btnCalculos.Location = new System.Drawing.Point(0, 0);
             this.btnCalculos.Name = "btnCalculos";
             this.btnCalculos.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnCalculos.Size = new System.Drawing.Size(250, 40);
+            this.btnCalculos.Size = new System.Drawing.Size(233, 40);
             this.btnCalculos.TabIndex = 0;
             this.btnCalculos.Text = "     Calcular Azimute";
             this.btnCalculos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -191,16 +138,27 @@
             this.btnTopografia.ForeColor = System.Drawing.Color.Silver;
             this.btnTopografia.Image = global::PL.Properties.Resources.total_station;
             this.btnTopografia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTopografia.Location = new System.Drawing.Point(0, 367);
+            this.btnTopografia.Location = new System.Drawing.Point(0, 432);
             this.btnTopografia.Name = "btnTopografia";
             this.btnTopografia.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnTopografia.Size = new System.Drawing.Size(250, 45);
+            this.btnTopografia.Size = new System.Drawing.Size(233, 45);
             this.btnTopografia.TabIndex = 6;
             this.btnTopografia.Text = "     Topografia";
             this.btnTopografia.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTopografia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTopografia.UseVisualStyleBackColor = true;
             this.btnTopografia.Click += new System.EventHandler(this.btnTopografia_Click);
+            // 
+            // panelSubMenuConsultas
+            // 
+            this.panelSubMenuConsultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCNPJ);
+            this.panelSubMenuConsultas.Controls.Add(this.btnConsultaCPF);
+            this.panelSubMenuConsultas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuConsultas.Location = new System.Drawing.Point(0, 341);
+            this.panelSubMenuConsultas.Name = "panelSubMenuConsultas";
+            this.panelSubMenuConsultas.Size = new System.Drawing.Size(233, 91);
+            this.panelSubMenuConsultas.TabIndex = 5;
             // 
             // btnConsultaCNPJ
             // 
@@ -215,7 +173,7 @@
             this.btnConsultaCNPJ.Location = new System.Drawing.Point(0, 40);
             this.btnConsultaCNPJ.Name = "btnConsultaCNPJ";
             this.btnConsultaCNPJ.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnConsultaCNPJ.Size = new System.Drawing.Size(250, 40);
+            this.btnConsultaCNPJ.Size = new System.Drawing.Size(233, 40);
             this.btnConsultaCNPJ.TabIndex = 1;
             this.btnConsultaCNPJ.Text = "     CNPJ";
             this.btnConsultaCNPJ.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -235,7 +193,7 @@
             this.btnConsultaCPF.Location = new System.Drawing.Point(0, 0);
             this.btnConsultaCPF.Name = "btnConsultaCPF";
             this.btnConsultaCPF.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnConsultaCPF.Size = new System.Drawing.Size(250, 40);
+            this.btnConsultaCPF.Size = new System.Drawing.Size(233, 40);
             this.btnConsultaCPF.TabIndex = 0;
             this.btnConsultaCPF.Text = "     CPF";
             this.btnConsultaCPF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -253,10 +211,10 @@
             this.btnConsultas.ForeColor = System.Drawing.Color.Silver;
             this.btnConsultas.Image = global::PL.Properties.Resources.consultas;
             this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.Location = new System.Drawing.Point(0, 231);
+            this.btnConsultas.Location = new System.Drawing.Point(0, 296);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnConsultas.Size = new System.Drawing.Size(250, 45);
+            this.btnConsultas.Size = new System.Drawing.Size(233, 45);
             this.btnConsultas.TabIndex = 4;
             this.btnConsultas.Text = "      Consultas";
             this.btnConsultas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -272,17 +230,50 @@
             this.btnMenuSair.ForeColor = System.Drawing.Color.Silver;
             this.btnMenuSair.Image = global::PL.Properties.Resources.logout;
             this.btnMenuSair.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuSair.Location = new System.Drawing.Point(0, 517);
+            this.btnMenuSair.Location = new System.Drawing.Point(0, 568);
             this.btnMenuSair.Name = "btnMenuSair";
             this.btnMenuSair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btnMenuSair.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnMenuSair.Size = new System.Drawing.Size(250, 45);
+            this.btnMenuSair.Size = new System.Drawing.Size(233, 45);
             this.btnMenuSair.TabIndex = 3;
             this.btnMenuSair.Text = "     Sair";
             this.btnMenuSair.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSair.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnMenuSair.UseVisualStyleBackColor = true;
             this.btnMenuSair.Click += new System.EventHandler(this.btnMenuSair_Click);
+            // 
+            // panelSubMenuCadastros
+            // 
+            this.panelSubMenuCadastros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.panelSubMenuCadastros.Controls.Add(this.btnProduto);
+            this.panelSubMenuCadastros.Controls.Add(this.btnSites);
+            this.panelSubMenuCadastros.Controls.Add(this.btnClientes);
+            this.panelSubMenuCadastros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelSubMenuCadastros.Location = new System.Drawing.Point(0, 140);
+            this.panelSubMenuCadastros.Name = "panelSubMenuCadastros";
+            this.panelSubMenuCadastros.Size = new System.Drawing.Size(233, 156);
+            this.panelSubMenuCadastros.TabIndex = 2;
+            // 
+            // btnProduto
+            // 
+            this.btnProduto.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProduto.FlatAppearance.BorderSize = 0;
+            this.btnProduto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnProduto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(38)))), ((int)(((byte)(46)))));
+            this.btnProduto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProduto.ForeColor = System.Drawing.Color.Silver;
+            this.btnProduto.Image = global::PL.Properties.Resources.shopping_cart;
+            this.btnProduto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduto.Location = new System.Drawing.Point(0, 80);
+            this.btnProduto.Name = "btnProduto";
+            this.btnProduto.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
+            this.btnProduto.Size = new System.Drawing.Size(233, 40);
+            this.btnProduto.TabIndex = 2;
+            this.btnProduto.Text = "     Produtos";
+            this.btnProduto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProduto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProduto.UseVisualStyleBackColor = true;
+            this.btnProduto.Click += new System.EventHandler(this.btnProduto_Click);
             // 
             // btnSites
             // 
@@ -297,7 +288,7 @@
             this.btnSites.Location = new System.Drawing.Point(0, 40);
             this.btnSites.Name = "btnSites";
             this.btnSites.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnSites.Size = new System.Drawing.Size(250, 40);
+            this.btnSites.Size = new System.Drawing.Size(233, 40);
             this.btnSites.TabIndex = 1;
             this.btnSites.Text = "     Sites/Tipos";
             this.btnSites.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -318,7 +309,7 @@
             this.btnClientes.Location = new System.Drawing.Point(0, 0);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Padding = new System.Windows.Forms.Padding(35, 0, 0, 0);
-            this.btnClientes.Size = new System.Drawing.Size(250, 40);
+            this.btnClientes.Size = new System.Drawing.Size(233, 40);
             this.btnClientes.TabIndex = 0;
             this.btnClientes.Text = "     Clientes";
             this.btnClientes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -339,7 +330,7 @@
             this.btnCadastros.Location = new System.Drawing.Point(0, 95);
             this.btnCadastros.Name = "btnCadastros";
             this.btnCadastros.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btnCadastros.Size = new System.Drawing.Size(250, 45);
+            this.btnCadastros.Size = new System.Drawing.Size(233, 45);
             this.btnCadastros.TabIndex = 1;
             this.btnCadastros.Text = "      Cadastros";
             this.btnCadastros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -347,16 +338,48 @@
             this.btnCadastros.UseVisualStyleBackColor = true;
             this.btnCadastros.Click += new System.EventHandler(this.btnCadastros_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panelLogo.Controls.Add(this.pictureBox2);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(233, 95);
+            this.panelLogo.TabIndex = 0;
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::PL.Properties.Resources.asdasdas;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(250, 95);
+            this.pictureBox2.Size = new System.Drawing.Size(233, 95);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
+            // 
+            // panelChildForm
+            // 
+            this.panelChildForm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(32)))));
+            this.panelChildForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panelChildForm.Controls.Add(this.pictureBox1);
+            this.panelChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelChildForm.Location = new System.Drawing.Point(250, 0);
+            this.panelChildForm.Name = "panelChildForm";
+            this.panelChildForm.Size = new System.Drawing.Size(684, 562);
+            this.panelChildForm.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Image = global::PL.Properties.Resources.undraw_programming_2svr;
+            this.pictureBox1.Location = new System.Drawing.Point(53, 140);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(579, 268);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmHome
             // 
@@ -373,13 +396,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PasswordsBook";
             this.panelSideMenu.ResumeLayout(false);
+            this.panelSubMenuTopografia.ResumeLayout(false);
             this.panelSubMenuConsultas.ResumeLayout(false);
             this.panelSubMenuCadastros.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
-            this.panelChildForm.ResumeLayout(false);
-            this.panelSubMenuTopografia.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelChildForm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -404,5 +427,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnCalculos;
         private System.Windows.Forms.Button btnTopografia;
+        private System.Windows.Forms.Button btnProduto;
     }
 }

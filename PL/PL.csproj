@@ -96,6 +96,12 @@
     <Compile Include="FrmHome.Designer.cs">
       <DependentUpon>FrmHome.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProdutoSelecionar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProdutoSelecionar.Designer.cs">
+      <DependentUpon>FrmProdutoSelecionar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTopografiaCalculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHome.resx">
       <DependentUpon>FrmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProdutoSelecionar.resx">
+      <DependentUpon>FrmProdutoSelecionar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTopografiaCalculos.resx">
       <DependentUpon>FrmTopografiaCalculos.cs</DependentUpon>
@@ -221,6 +230,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\total-station.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shopping-cart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
