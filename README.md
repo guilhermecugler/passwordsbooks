@@ -1,2 +1,2 @@
 # PasswordsBook
-Caderno para salvar senhas de sites/apps
+Banco de dados para prestadora de serviços
